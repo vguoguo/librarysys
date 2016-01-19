@@ -1,5 +1,7 @@
 package Application;
 
-public class Periodical extends Publication{
+import java.io.Serializable;
+
+public class Periodical extends Publication implements Serializable{
 
 }
