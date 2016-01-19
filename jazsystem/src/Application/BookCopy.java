@@ -1,5 +1,13 @@
 package Application;
 
 public class BookCopy {
-private boolean available;
+public boolean available;
+
+public BookCopy() {
+	super();
+	this.available=true;
+}
+
+
+
 }
