@@ -9,7 +9,8 @@ import java.nio.file.Path;
 import Application.Periodical;
 
 public class periodicalDataAccess {
-	public static final String separator=System.getProperty("file.separator"); 
+	public static final String separator=System.getProperty("file.separator");
+	
 	public static final String OUTPUT_DIR = System.getProperty("user.dir") 
 			+ separator+"doc"+separator+"Storage"+separator+"Periodical";
 	
