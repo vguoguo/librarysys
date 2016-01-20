@@ -1,36 +1,41 @@
 package Application;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
-public class Book extends Publication implements Serializable{
-private String title;
-List<Author> authorsList;
-List<BookCopy> bookCopyList;
 
+public class Book extends Item {
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3301463621028266684L;
+private int bookID;
+private int ISBN;
+public int getBookID() {
+	return bookID;
+}
+public void setBookID(int bookID) {
+	this.bookID = bookID;
+}
+public int getISBN() {
+	return ISBN;
+}
+public void setISBN(int iSBN) {
+	ISBN = iSBN;
+}
+public Book(int bookID, int iSBN) {
+	super();
+	this.bookID = bookID;
+	ISBN = iSBN;
+}
+public Book(int iSBN) {
+	super();
+	this.bookID = 0;
+	ISBN = iSBN;
+}
 public Book() {
 	super();
-	this.title = "";
-	this.authorsList = new ArrayList<Author>();
-	this.bookCopyList = new ArrayList<BookCopy>();
+	this.bookID = 0;
+	this.ISBN = 0;
 }
-public Book(String title) {
-	super();
-	this.title = title;
-	this.authorsList = new ArrayList<Author>();
-	this.bookCopyList = new ArrayList<BookCopy>();
-}
-public String getTitle() {
-	return title;
-}
-public void setTitle(String title) {
-	this.title = title;
-}
-public void addBookCopy(BookCopy bookcopy){
-	
-}
-public List<BookCopy> getBookCopyList(){
-	return this.bookCopyList;
-}
+
+
 }

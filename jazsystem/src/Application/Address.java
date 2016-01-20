@@ -1,23 +1,23 @@
 package Application;
 
 public class Address {
-String street;
-String city;
-String state;
-int Zip;
+private String street;
+private String city;
+private String state;
+private int zip;
 public Address() {
 	super();
 	this.street = "";
 	this.city = "";
 	this.state = "";
-	this.Zip = 0;
+	this.zip = 0;
 }
 public Address(String street, String city, String state, int zip) {
 	super();
 	this.street = street;
 	this.city = city;
 	this.state = state;
-	Zip = zip;
+	this.zip = zip;
 }
 public String getStreet() {
 	return street;
@@ -38,10 +38,10 @@ public void setState(String state) {
 	this.state = state;
 }
 public int getZip() {
-	return Zip;
+	return this.zip;
 }
 public void setZip(int zip) {
-	Zip = zip;
+	this.zip = zip;
 }
 
 }

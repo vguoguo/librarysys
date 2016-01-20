@@ -3,23 +3,41 @@ package Application;
 import java.io.Serializable;
 
 public class Member implements Serializable{
-String name;
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1537736727478429134L;
+private int memberID;
+private CheckOutRecord checkoutrecord;
 
 public Member() {
 	super();
-	this.name = "";
+	this.memberID = 0;
+	this.checkoutrecord=new CheckOutRecord();
 }
-public Member(String name) {
+public Member(int memberID) {
 	super();
-	this.name = name;
+	this.memberID = memberID;
+}
+public Member(int memberID,CheckOutRecord checkoutrecord) {
+	super();
+	this.memberID = memberID;
+	this.checkoutrecord=checkoutrecord;
+}
+public CheckOutRecord getCheckoutrecord() {
+	return checkoutrecord;
+}
+public void setCheckoutrecord(CheckOutRecord checkoutrecord) {
+	this.checkoutrecord = checkoutrecord;
 }
 
-public String getName() {
-	return name;
+
+public int getMemberID() {
+	return memberID;
 }
 
-public void setName(String name) {
-	this.name = name;
+public void setMemberID(int memberID) {
+	this.memberID = memberID;
 }
 
 }
