@@ -11,17 +11,17 @@ import javafx.scene.Scene;
 
 
 public class Main extends Application {
-	
+
 	private Logger logger = Logger.getLogger(Main.class.getName());
-	
+
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-		primaryStage.setTitle("Welcome to jaz Library System");
+		primaryStage.setTitle("jaz Library System");
 		primaryStage.setScene(new Scene(root, 500, 350));
 		primaryStage.setResizable(false);
 		primaryStage.show();
-		logger.log(Level.INFO, "test logging...");
+//		logger.log(Level.INFO, "test logging...");
 	}
 
 	public static void main(String[] args) {
