@@ -13,4 +13,7 @@ public class LoginController {
 	private PasswordField passwordField;
 
 
+	public void handleLoginButton(){
+		usernameField.setText(passwordField.getText());
+	}
 }
