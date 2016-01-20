@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Item implements Serializable{
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = -8481021002349726268L;
 	private int itemID;
@@ -17,9 +17,9 @@ public class Item implements Serializable{
 	private int number_of_copies;
 	private boolean isavailable;
 	private int max_day_borrow;
-	
-	
-	
+
+
+
 	public int getItemID() {
 		return itemID;
 	}
@@ -68,5 +68,5 @@ public class Item implements Serializable{
 	public void setMax_day_borrow(int max_day_borrow) {
 		this.max_day_borrow = max_day_borrow;
 	}
-	
+
 }
