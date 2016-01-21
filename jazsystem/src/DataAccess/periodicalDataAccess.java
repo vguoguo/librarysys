@@ -18,7 +18,7 @@ public class periodicalDataAccess {
 		// TODO Auto-generated method stub
 		ObjectOutputStream out = null;
 		try {
-			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, String.valueOf(periodicalkey));
+			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR+"Periodical", String.valueOf(periodicalkey));
 			out = new ObjectOutputStream(Files.newOutputStream(path));
 			out.writeObject(periodical);
 		} catch(IOException e) {
@@ -33,12 +33,12 @@ public class periodicalDataAccess {
 		
 	}
 	
-	public Periodical readMember(int periodicalkey) {
+	public Periodical readPeriodical(int periodicalkey) {
 		// TODO Auto-generated method stub
 		ObjectInputStream in = null;
 		Periodical periodical = null;
 		try {
-			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, String.valueOf(periodicalkey));
+			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR+"Periodical", String.valueOf(periodicalkey));
 			in = new ObjectInputStream(Files.newInputStream(path));
 			periodical = (Periodical)in.readObject();
 		} catch(Exception e) {

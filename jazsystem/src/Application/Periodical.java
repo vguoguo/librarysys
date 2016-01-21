@@ -19,22 +19,13 @@ public class Periodical extends Item {
 		this.releasedate = null;
 		this.ISSN = "0";
 	}
-	public Periodical(LocalDate releasedate, String iSSN) {
-		super();
-		this.releasedate = releasedate;
-		this.ISSN = iSSN;
-	}
-	public Periodical(int periodicalID, LocalDate releasedate, String iSSN) {
-		super();
-		this.periodicalID = periodicalID;
-		this.releasedate = releasedate;
-		this.ISSN = iSSN;
-	}
+	
 	public Periodical(String ISSN, LocalDate publicationdate, String title, List<Author> authors, List<Copy> copies,
 			boolean isavailable, int max_day_borrow) {
 		super("P"+ISSN, publicationdate, title, authors, copies, isavailable, max_day_borrow);
 		this.ISSN = ISSN;
 	}
+	
 	
 	public int getPeriodicalID() {
 		return periodicalID;

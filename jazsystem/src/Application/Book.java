@@ -16,6 +16,7 @@ public Book(String ISBN, LocalDate publicationdate, String title, List<Author> a
 	this.ISBN = ISBN;
 }
 
+
 public Book() {
 	super();
 	this.ISBN = "0";

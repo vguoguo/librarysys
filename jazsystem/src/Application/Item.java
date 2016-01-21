@@ -35,9 +35,17 @@ public class Item implements Serializable{
 		this.publicationdate = publicationdate;
 		this.title = title;
 		this.authors = authors;
+		this.copies=copies;
 		this.copies = copies;
 		this.isavailable = isavailable;
 		this.max_day_borrow = max_day_borrow;
+	}
+	
+	public void addCopy(Copy copy){
+		this.copies.add(copy);
+	}
+	public void addAuthor(Author author){
+		this.authors.add(author);
 	}
 	public String getItemID() {
 		return itemID;
