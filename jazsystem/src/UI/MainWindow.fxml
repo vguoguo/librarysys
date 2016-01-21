@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -7,42 +9,68 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.MainWindowController">
    <top>
-      <AnchorPane prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #FFFF00;" BorderPane.alignment="CENTER">
+      <AnchorPane prefHeight="78.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF;" BorderPane.alignment="CENTER">
          <children>
-            <Label layoutX="70.0" layoutY="14.0" text="jaz Library System">
+            <Label layoutX="232.0" layoutY="29.0" text="Library System" textFill="#0a04ba">
                <font>
-                  <Font size="36.0" />
+                  <Font name="Arial" size="36.0" />
                </font>
             </Label>
-            <Label layoutX="445.0" layoutY="19.0" text="Username :">
+            <Label layoutX="610.0" layoutY="41.0" text="|">
                <font>
-                  <Font size="18.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="548.0" layoutY="19.0" text="root">
+            <Label layoutX="602.0" layoutY="19.0" prefHeight="20.0" prefWidth="92.0" text="testaccount" textFill="#d33606">
                <font>
-                  <Font size="18.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="445.0" layoutY="54.0" prefHeight="27.0" prefWidth="62.0" text="Role :">
+            <Label layoutX="548.0" layoutY="38.0" prefHeight="27.0" prefWidth="62.0" text="Admin">
                <font>
-                  <Font size="18.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
-            <Label layoutX="509.0" layoutY="54.0" text="Admin &amp; Librarian">
+            <Label disable="true" layoutX="626.0" layoutY="41.0" text="Librarian">
                <font>
-                  <Font size="18.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
-            <Button layoutX="714.0" layoutY="35.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" text="Logout">
+            <Button layoutX="708.0" layoutY="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="78.0" text="Logout">
                <font>
                   <Font size="14.0" />
                </font>
             </Button>
+            <ImageView fitHeight="76.0" fitWidth="165.0" layoutX="5.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@javafx.png" />
+               </image></ImageView>
          </children>
       </AnchorPane>
    </top>
+   <center>
+      <SplitPane dividerPositions="0.6711538461538461" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <ChoiceBox fx:id="isbnORissn" layoutX="10.0" layoutY="10.0" prefHeight="30.0" prefWidth="66.0" />
+                  <TextField fx:id="itemIdField" layoutX="80.0" layoutY="10.0" prefHeight="30.0" prefWidth="266.0" promptText="ISBN for book, or ISSN for periodical">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Button layoutX="355.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="72.0" text="Button">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <TextArea editable="false" layoutX="501.0" layoutY="73.0" prefHeight="200.0" prefWidth="200.0" promptText="bio" />
+                  <ListView layoutX="355.0" layoutY="73.0" prefHeight="200.0" prefWidth="104.0" />
+               </children></AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0" />
+        </items>
+      </SplitPane>
+   </center>
 </BorderPane>
