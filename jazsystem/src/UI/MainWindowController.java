@@ -15,12 +15,12 @@ public class MainWindowController {
 
 	private Stage loginStage;
 	private Stage mainStage;
-	
+
 	public void handleLogoutButton(ActionEvent event){
-		loginStage.hide();
-		mainStage.show();
+		mainStage.hide();
+		loginStage.show();
 	}
-	
+
 	public void setLoginStage(Stage loginStage) {
 		this.loginStage = loginStage;
 	}

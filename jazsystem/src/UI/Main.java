@@ -17,6 +17,7 @@ public class Main extends Application {
 		LoginController loginController = loginLoader.getController();
 		FXMLLoader mainWindowLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
 		Parent mainPane = mainWindowLoader.load();
+		MainWindowController mainWindowController = mainWindowLoader.getController();
 
 		loginStage.setTitle("jaz Library System");
 		loginStage.setScene(new Scene(loginPane, 500, 350));
@@ -27,6 +28,8 @@ public class Main extends Application {
 		mainStage.setResizable(false);
 		loginController.setLoginStage(loginStage);
 		loginController.setMainStage(mainStage);
+		mainWindowController.setLoginStage(loginStage);
+		mainWindowController.setMainStage(mainStage);
 		loginStage.show();
 	}
 
