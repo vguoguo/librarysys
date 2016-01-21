@@ -11,28 +11,28 @@ public class Periodical extends Item {
 	private static final long serialVersionUID = -2783593937556159287L;
 	private int periodicalID;
 	private LocalDate releasedate;
-	private int ISSN;
+	private String ISSN;
 	
 	public Periodical() {
 		super();
 		this.periodicalID=0;
 		this.releasedate = null;
-		this.ISSN = 0;
+		this.ISSN = "0";
 	}
-	public Periodical(LocalDate releasedate, int iSSN) {
+	public Periodical(LocalDate releasedate, String iSSN) {
 		super();
 		this.releasedate = releasedate;
 		this.ISSN = iSSN;
 	}
-	public Periodical(int periodicalID, LocalDate releasedate, int iSSN) {
+	public Periodical(int periodicalID, LocalDate releasedate, String iSSN) {
 		super();
 		this.periodicalID = periodicalID;
 		this.releasedate = releasedate;
 		this.ISSN = iSSN;
 	}
-	public Periodical(int ISSN, LocalDate publicationdate, String title, List<Author> authors, List<Copy> copies,
+	public Periodical(String ISSN, LocalDate publicationdate, String title, List<Author> authors, List<Copy> copies,
 			boolean isavailable, int max_day_borrow) {
-		super("P"+String.valueOf(ISSN), publicationdate, title, authors, copies, isavailable, max_day_borrow);
+		super("P"+ISSN, publicationdate, title, authors, copies, isavailable, max_day_borrow);
 		this.ISSN = ISSN;
 	}
 	
@@ -48,11 +48,8 @@ public class Periodical extends Item {
 	public void setReleasedate(LocalDate releasedate) {
 		this.releasedate = releasedate;
 	}
-	public int getISSN() {
+	public String getISSN() {
 		return ISSN;
-	}
-	public void setISSN(int iSSN) {
-		this.ISSN = iSSN;
 	}
 
 }
