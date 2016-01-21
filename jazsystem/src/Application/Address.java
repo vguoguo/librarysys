@@ -1,6 +1,12 @@
 package Application;
 
-public class Address {
+import java.io.Serializable;
+
+public class Address implements Serializable{
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3934824233781868125L;
 private String street;
 private String city;
 private String state;

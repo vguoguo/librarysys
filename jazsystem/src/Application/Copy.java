@@ -1,9 +1,28 @@
 package Application;
 
-public class Copy {
+import java.io.Serializable;
+
+public class Copy implements Serializable{
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5735500249647242863L;
 private boolean available;
 private int copiID;
+private String ItemID;
+public Copy(boolean available, int copiID,String ItemID) {
+	super();
+	this.available = available;
+	this.copiID = copiID;
+	this.setItemID(ItemID);
+}
 
+public Copy() {
+	super();
+	this.available=true;
+	this.copiID=0;
+	
+}
 public boolean isAvailable() {
 	return available;
 }
@@ -20,17 +39,14 @@ public void setCopiID(int copiID) {
 	this.copiID = copiID;
 }
 
-public Copy(boolean available, int copiID) {
-	super();
-	this.available = available;
-	this.copiID = copiID;
+
+
+public String getItemID() {
+	return ItemID;
 }
 
-public Copy() {
-	super();
-	this.available=true;
-	this.copiID=0;
-	
+public void setItemID(String itemID) {
+	ItemID = itemID;
 }
 
 

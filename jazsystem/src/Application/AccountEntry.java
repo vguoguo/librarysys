@@ -12,6 +12,13 @@ public class AccountEntry implements Serializable {
 	private String password;
 	private boolean isAdmin;
 	private boolean isLibrarian;
+	public AccountEntry(int userID,String username,String password,boolean isAdmin,boolean isLibrarian){
+		this.userID=userID;
+		this.username=username;
+		this.password=password;
+		this.isAdmin=isAdmin;
+		this.isLibrarian=isLibrarian;
+	}
 	public int getUserID() {
 		return userID;
 	}

@@ -1,26 +1,32 @@
 package Application;
 
-public class Person {
+import java.io.Serializable;
+
+public class Person implements Serializable{
+/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8442461307941012359L;
 private String firstname;
 private String lastname;
-private int phone;
+private String phone;
 private Address address;
 
 public Person() {
 	super();
 	this.firstname = "";
 	this.lastname = "";
-	this.phone = 0;
+	this.phone = "";
 	this.address=new Address();
 }
-public Person(String firstname, String lastname, int phone) {
+public Person(String firstname, String lastname, String phone) {
 	super();
 	this.firstname = firstname;
 	this.lastname = lastname;
 	this.phone = phone;
 	this.address=new Address();
 }
-public Person(String firstname, String lastname, int phone, Address address) {
+public Person(String firstname, String lastname, String phone, Address address) {
 	super();
 	this.firstname = firstname;
 	this.lastname = lastname;
@@ -39,10 +45,10 @@ public String getLastname() {
 public void setLastname(String lastname) {
 	this.lastname = lastname;
 }
-public int getPhone() {
+public String getPhone() {
 	return phone;
 }
-public void setPhone(int phone) {
+public void setPhone(String phone) {
 	this.phone = phone;
 }
 public Address getAddress() {

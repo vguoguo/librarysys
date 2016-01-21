@@ -2,7 +2,6 @@ package Application;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.logging.Logger;
 
 
 public class AccountMap  implements Serializable {
@@ -10,9 +9,11 @@ public class AccountMap  implements Serializable {
 	 *
 	 */
 	private static final long serialVersionUID = -6136307103175364853L;
-	private Logger logger = Logger.getLogger(AccountMap.class.getName());
-
 	private HashMap<String, AccountEntry> accountMap = new HashMap<>();
+	
+	public AccountMap() {
+		super();
+	}
 
 
 

@@ -1,5 +1,6 @@
 package DataAccess;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -16,11 +17,11 @@ public class BookDataAccess  {
 			+ separator+"doc"+separator+"Storage"+separator+"Book";
 	//public static final String DATE_PATTERN = "MM/dd/yyyy";
 	
-	public void saveBook(int bookkey, Book book) {
+	public void saveBook(int ISBN, Book book) {
 		// TODO Auto-generated method stub
 		ObjectOutputStream out = null;
 		try {
-			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, String.valueOf(bookkey));
+			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, String.valueOf(ISBN));
 			out = new ObjectOutputStream(Files.newOutputStream(path));
 			out.writeObject(book);
 		} catch(IOException e) {
@@ -35,12 +36,18 @@ public class BookDataAccess  {
 		
 	}
 	
-	public Book readBook(int bookkey) {
+	public Book readBook(int ISBN) {
 		// TODO Auto-generated method stub
 		ObjectInputStream in = null;
 		Book book = null;
 		try {
-			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, String.valueOf(bookkey));
+			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, String.valueOf(ISBN));
+			File f = new File(OUTPUT_DIR);
+			if (!f.exists()){
+				System.out.println("Book doesnt exist");
+				return null;
+				
+			}
 			in = new ObjectInputStream(Files.newInputStream(path));
 			book = (Book)in.readObject();
 		} catch(Exception e) {

@@ -2,6 +2,7 @@ package Application;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Item implements Serializable{
@@ -9,21 +10,39 @@ public class Item implements Serializable{
 	 *
 	 */
 	private static final long serialVersionUID = -8481021002349726268L;
-	private int itemID;
+	private String itemID;
 	private LocalDate publicationdate;
 	private String title;
 	private List<Author> authors;
 	private List<Copy> copies;
-	private int number_of_copies;
 	private boolean isavailable;
 	private int max_day_borrow;
 
-
-
-	public int getItemID() {
+	
+	public Item() {
+		super();
+		this.itemID = "";
+		this.title = "";
+		this.authors = new ArrayList<Author>();
+		this.copies = new ArrayList<Copy>();
+		this.isavailable = true;
+		this.max_day_borrow = 0;
+	}
+	public Item(String itemID, LocalDate publicationdate, String title, List<Author> authors, List<Copy> copies,
+			boolean isavailable, int max_day_borrow) {
+		super();
+		this.itemID = itemID;
+		this.publicationdate = publicationdate;
+		this.title = title;
+		this.authors = authors;
+		this.copies = copies;
+		this.isavailable = isavailable;
+		this.max_day_borrow = max_day_borrow;
+	}
+	public String getItemID() {
 		return itemID;
 	}
-	public void setItemID(int itemID) {
+	public void setItemID(String itemID) {
 		this.itemID = itemID;
 	}
 	public LocalDate getPublicationdate() {
@@ -50,12 +69,7 @@ public class Item implements Serializable{
 	public void setCopies(List<Copy> copies) {
 		this.copies = copies;
 	}
-	public int getNumber_of_copies() {
-		return number_of_copies;
-	}
-	public void setNumber_of_copies(int number_of_copies) {
-		this.number_of_copies = number_of_copies;
-	}
+
 	public boolean isIsavailable() {
 		return isavailable;
 	}

@@ -1,6 +1,7 @@
 package Application;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class Periodical extends Item {
 
@@ -29,6 +30,12 @@ public class Periodical extends Item {
 		this.releasedate = releasedate;
 		this.ISSN = iSSN;
 	}
+	public Periodical(int ISSN, LocalDate publicationdate, String title, List<Author> authors, List<Copy> copies,
+			boolean isavailable, int max_day_borrow) {
+		super("P"+String.valueOf(ISSN), publicationdate, title, authors, copies, isavailable, max_day_borrow);
+		this.ISSN = ISSN;
+	}
+	
 	public int getPeriodicalID() {
 		return periodicalID;
 	}
@@ -45,7 +52,7 @@ public class Periodical extends Item {
 		return ISSN;
 	}
 	public void setISSN(int iSSN) {
-		ISSN = iSSN;
+		this.ISSN = iSSN;
 	}
 
 }

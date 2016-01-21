@@ -12,33 +12,33 @@ public class CheckOutEntry implements Serializable{
 	private LocalDate m_DueDate;
 	private LocalDate datereturned;
 	private boolean isreturned;
-	private Item bookORperiodical;
+	private Copy copy;
 	private FineRecord finerecord;
 	
 	public CheckOutEntry(LocalDate m_CheckoutDate, LocalDate m_DueDate,
-			Item bookORperiodical) {
+			Copy copy) {
 		super();
 		this.m_CheckoutDate = m_CheckoutDate;
 		this.m_DueDate = m_DueDate;
 		this.isreturned = false;
-		this.bookORperiodical = bookORperiodical;
+		this.copy = copy;
 	}
 	public CheckOutEntry(LocalDate m_CheckoutDate, LocalDate m_DueDate,  boolean isreturned,
-			Item bookORperiodical) {
+			Copy copy) {
 		super();
 		this.m_CheckoutDate = m_CheckoutDate;
 		this.m_DueDate = m_DueDate;
 		this.isreturned = isreturned;
-		this.bookORperiodical = bookORperiodical;
+		this.copy = copy;
 	}
 	public CheckOutEntry(LocalDate m_CheckoutDate, LocalDate m_DueDate, LocalDate datereturned, boolean isreturned,
-			Item bookORperiodical) {
+			Copy copy) {
 		super();
 		this.m_CheckoutDate = m_CheckoutDate;
 		this.m_DueDate = m_DueDate;
 		this.datereturned = datereturned;
 		this.isreturned = isreturned;
-		this.bookORperiodical = bookORperiodical;
+		this.copy = copy;
 	}
 	public LocalDate getM_CheckoutDate() {
 		return m_CheckoutDate;
@@ -64,11 +64,11 @@ public class CheckOutEntry implements Serializable{
 	public void setIsreturned(boolean isreturned) {
 		this.isreturned = isreturned;
 	}
-	public Item getBookORperiodical() {
-		return bookORperiodical;
+	public Copy getCopy() {
+		return copy;
 	}
-	public void setBookORperiodical(Item bookORperiodical) {
-		this.bookORperiodical = bookORperiodical;
+	public void setCopy(Copy copy) {
+		this.copy = copy;
 	}
 	public FineRecord getFinerecord() {
 		return finerecord;
@@ -76,6 +76,7 @@ public class CheckOutEntry implements Serializable{
 	public void setFinerecord(FineRecord finerecord) {
 		this.finerecord = finerecord;
 	}
+	
 	
 	
 	
