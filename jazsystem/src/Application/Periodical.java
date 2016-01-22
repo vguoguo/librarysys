@@ -9,30 +9,22 @@ public class Periodical extends Item {
 	 * 
 	 */
 	private static final long serialVersionUID = -2783593937556159287L;
-	private int periodicalID;
 	private LocalDate releasedate;
 	private String ISSN;
 	
 	public Periodical() {
 		super();
-		this.periodicalID=0;
 		this.releasedate = null;
 		this.ISSN = "0";
 	}
 	
-	public Periodical(String ISSN, LocalDate publicationdate, String title, List<Author> authors, List<Copy> copies,
+	public Periodical(String ISSN, LocalDate publicationdate, String title, List<Copy> copies,
 			boolean isavailable, int max_day_borrow) {
-		super("P"+ISSN, publicationdate, title, authors, copies, isavailable, max_day_borrow);
+		super("P"+ISSN, publicationdate, title, null, copies, isavailable, max_day_borrow);
 		this.ISSN = ISSN;
 	}
 	
 	
-	public int getPeriodicalID() {
-		return periodicalID;
-	}
-	public void setPeriodicalID(int periodicalID) {
-		this.periodicalID = periodicalID;
-	}
 	public LocalDate getReleasedate() {
 		return releasedate;
 	}

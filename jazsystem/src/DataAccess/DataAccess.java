@@ -16,7 +16,40 @@ public class DataAccess {
 	public static final String separator=System.getProperty("file.separator"); 
 	public static final String OUTPUT_DIR = System.getProperty("user.dir") 
 			+ separator+"doc"+separator+"Storage"+separator;
-	
+	public int generateMemberID(){
+		File directory = new File(OUTPUT_DIR+"Member");
+        //get all the files from a directory
+        File[] fList = directory.listFiles();
+        if(fList.length==0){
+        	return 1;
+        }else{
+        int i=0;
+        int max=0;
+        for (File file : fList){
+            if (file.isFile()){
+                
+                try{
+                i=Integer.parseInt(file.getName());
+                }
+                catch(Exception e){
+                	System.out.println("file not correct");
+                }
+                finally{
+                	if(max<i){
+                		max=i;
+                	}
+                }
+            }
+        }
+        if(i==0){
+        	return 1;
+        }
+        else{
+        	return max+1;
+        }
+        }
+		
+	}
 	public void saveMember(int memberkey, Member member) {
 		// TODO Auto-generated method stub
 		ObjectOutputStream out = null;
@@ -61,7 +94,7 @@ public class DataAccess {
 		}
 		return member;
 	}
-	public void savePeriodival(String periodicalkey, Periodical periodical) {
+	public void savePeriodical(String periodicalkey, Periodical periodical) {
 		// TODO Auto-generated method stub
 		ObjectOutputStream out = null;
 		try {

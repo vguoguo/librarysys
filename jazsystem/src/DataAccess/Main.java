@@ -17,6 +17,7 @@ import Application.Copy;
 import Application.Item;
 import Application.Member;
 import Application.Periodical;
+import UI.SystemController;
 
 public class Main {
 
@@ -73,10 +74,10 @@ PDA.savePeriodival(1, periodical);
 		map.addEntry(user2);
 		map.addEntry(user3);
 		AccountMapDataAccess amda=new AccountMapDataAccess();
-		amda.saveAccountMap("Login", map);
+		amda.saveAccountMap( map);
 		System.out.println(map.getEntry("joy").getPassword());
 		AccountMapDataAccess ama=new AccountMapDataAccess();
-		ama.readAccountMap("Login");
+		ama.readAccountMap();
 		System.out.println(map.getEntry("joy").getPassword());
 		System.out.println(LocalDate.of(1989, 11, 19));
 		/*
@@ -93,7 +94,8 @@ PDA.savePeriodival(1, periodical);
 		List<Author> authors1=new ArrayList<Author>();
 		
 		authors1.add(new Author("Michel","hanks","87698876",new Address("1N ","sanDiego","CALIFORNIA",44257),"Physics nobel","born in atlanata in 1962"));
-		
+		authors1.add(new Author("halima","messoud","645811292",new Address("10N st ","new york","NEW YORK",177771),"classy fan","we cant"));
+
 		Book book1=new Book("766686565", LocalDate.of(1989, 11, 19), "Le livre de la mort", authors1,new ArrayList<Copy>()
 				, true, 21);
 		
@@ -107,6 +109,8 @@ PDA.savePeriodival(1, periodical);
 		List<Author> authors2=new ArrayList<Author>();
 		authors2.add(new Author("Michel","hanks","87698876",new Address("2768st ","sanDiego","CALIFORNIA",44257),"Physics nobel","born in atlanata in 1962"));
 		authors2.add(new Author("slater","kelly","87999876",new Address("19st ","santa barbara","FLORIDA",44347),"chimie","bndkh"));
+		authors2.add(new Author("nissrine","laajaj","64596720",new Address("190st ","norhore","California",143781),"1 million fan","we cant"));
+
 		Book book2=new Book("7666823465", LocalDate.of(1971, 01, 10), "the art of living", authors2, new ArrayList<Copy>(),
 		true, 7);
 		
@@ -118,6 +122,7 @@ PDA.savePeriodival(1, periodical);
 		booklist.add(book2);
 		/****Book3*****/
 		List<Author> authors3=new ArrayList<Author>();
+		authors3.add(new Author("amal","hyani","645882782",new Address("1N st ","burnind","OHIO",143211),"10 awards","we cant"));
 		authors3.add(new Author("pupo","miguel","81119876",new Address("1st ","vegas","Texas",987677),"soccerplayer","no idea"));
 		Book book3=new Book("7666843965", LocalDate.of(1990, 01, 29), "mastering the cold", authors3, new ArrayList<Copy>(),
 		true, 7);
@@ -139,9 +144,7 @@ PDA.savePeriodival(1, periodical);
 		 * harde code periodical
 		 */
 		/****periodical1*****/
-		List<Author> authors5=new ArrayList<Author>();
-		authors5.add(new Author("nissrine","laajaj","64596720",new Address("190st ","norhore","California",143781),"1 million fan","we cant"));
-		Periodical periodical5=new Periodical("766686565", LocalDate.of(1980, 01, 01), "ITmagazine", authors5, new ArrayList<Copy>(),
+				Periodical periodical5=new Periodical("766686565333", LocalDate.of(1980, 01, 01), "ITmagazine", new ArrayList<Copy>(),
 		true, 7);
 		
 		List<Copy> copy5=new ArrayList<Copy>();
@@ -150,9 +153,7 @@ PDA.savePeriodival(1, periodical);
 		periodical5.setCopies(copy5);
 		periodicallist.add(periodical5);
 		/****periodical2*****/
-		List<Author> authors6=new ArrayList<Author>();
-		authors6.add(new Author("amal","hyani","645882782",new Address("1N st ","burnind","OHIO",143211),"10 awards","we cant"));
-		Periodical periodical6=new Periodical("766686379", LocalDate.of(2000, 03, 21), "gentelman magazine", authors6, new ArrayList<Copy>(),
+		Periodical periodical6=new Periodical("766686379", LocalDate.of(2000, 03, 21), "gentelman magazine",  new ArrayList<Copy>(),
 		true, 7);
 		
 		List<Copy> copy6=new ArrayList<Copy>();
@@ -161,9 +162,7 @@ PDA.savePeriodival(1, periodical);
 		periodical6.setCopies(copy6);
 		periodicallist.add(periodical6);
 		/****periodical3*****/
-		List<Author> authors7=new ArrayList<Author>();
-		authors7.add(new Author("halima","messoud","645811292",new Address("10N st ","new york","NEW YORK",177771),"classy fan","we cant"));
-		Periodical periodical7=new Periodical("76868379", LocalDate.of(2010, 9, 21), "fashion magazine", authors6, new ArrayList<Copy>(),
+		Periodical periodical7=new Periodical("76868379", LocalDate.of(2010, 9, 21), "fashion magazine", new ArrayList<Copy>(),
 		true, 7);
 		
 		List<Copy> copy7=new ArrayList<Copy>();
@@ -209,7 +208,7 @@ PDA.savePeriodival(1, periodical);
 			System.out.println("**"+i+"**");
 		}
 		for(Periodical a:periodicallist){
-			data.savePeriodival(a.getItemID(), a);
+			data.savePeriodical(a.getItemID(), a);
 		}
 		
 		Member member =data.readMember(3);
@@ -221,6 +220,16 @@ PDA.savePeriodival(1, periodical);
 			System.out.println("****");
 		}
 		System.out.println("****"+book.getTitle()+"****"+book.getAuthors().get(0).getFirstname()+"####"+book.getCopies().get(0).getItemID()+"####"+book.getAuthors().get(0).getAddress().getState()+"$$$$$$");
+	
+		SystemController sys=new SystemController();
+		sys.Checkout(member3, periodicallist.get(0));
+		
+		member =data.readMember(3);
+		System.out.println("**memeber**"+member.getFirstname()+"****"+member.getAddress().getStreet()+"#####"+member.getCheckoutrecord().getCheckoutentries().get(0).getM_CheckoutDate()+"^^^^^^"+member.getCheckoutrecord().getCheckoutentries().get(0).getCopy().getCopiID()+"@@@@@"+member.getCheckoutrecord().getCheckoutentries().get(0).getCopy().isAvailable());
+		periodical=data.readPeriodical("P766686565333");
+		System.out.println("****"+periodical.getMax_day_borrow()+"****"+periodical.getAuthors().get(0).getCredential()+"####"+periodical.getCopies().get(0).getItemID()+"####"+"$$$$$$");
+		   
+	
 	}
 
 }

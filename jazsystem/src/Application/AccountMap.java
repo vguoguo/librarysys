@@ -15,7 +15,12 @@ public class AccountMap  implements Serializable {
 		super();
 	}
 
-
+	public boolean contains(String username){
+		if(accountMap.containsKey(username))
+	        return true;
+		else
+			return false;
+	}
 
 	public HashMap<String, AccountEntry> getAccountMap() {
 		return accountMap;

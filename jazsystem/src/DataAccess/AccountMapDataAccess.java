@@ -14,12 +14,12 @@ public class AccountMapDataAccess {
 	public static final String separator=System.getProperty("file.separator"); 
 	public static final String OUTPUT_DIR = System.getProperty("user.dir") 
 			+ separator+"doc"+separator+"Storage"+separator+"AccountMap";
-	
-	public void saveAccountMap(String username, AccountMap accountmap) {
+	public static final String file="Login";
+	public void saveAccountMap( AccountMap accountmap) {
 		// TODO Auto-generated method stub
 		ObjectOutputStream out = null;
 		try {
-			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, username);
+			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, file);
 			out = new ObjectOutputStream(Files.newOutputStream(path));
 			out.writeObject(accountmap);
 		} catch(IOException e) {
@@ -34,12 +34,12 @@ public class AccountMapDataAccess {
 		
 	}
 	
-	public AccountMap readAccountMap(String username) {
+	public AccountMap readAccountMap() {
 		// TODO Auto-generated method stub
 		ObjectInputStream in = null;
 		AccountMap accountmap = null;
 		try {
-			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, String.valueOf(username));
+			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR, file);
 			in = new ObjectInputStream(Files.newInputStream(path));
 			accountmap = (AccountMap)in.readObject();
 		} catch(Exception e) {
