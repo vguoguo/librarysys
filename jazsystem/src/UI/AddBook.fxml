@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="629.0" prefWidth="857.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.AddBookController">
+   <children>
+      <ListView layoutX="422.0" layoutY="19.0" prefHeight="593.0" prefWidth="414.0" />
+      <ListView layoutX="31.0" layoutY="31.0" prefHeight="481.0" prefWidth="370.0" />
+      <Label layoutX="112.0" layoutY="88.0" text="ISBN" />
+      <TextField fx:id="ISBNField" layoutX="185.0" layoutY="84.0" prefHeight="39.0" prefWidth="206.0" />
+      <Label layoutX="111.0" layoutY="146.0" text="Title" />
+      <TextField fx:id="TitleField" layoutX="185.0" layoutY="138.0" prefHeight="39.0" prefWidth="206.0" />
+      <Label layoutX="53.0" layoutY="206.0" prefHeight="27.0" prefWidth="130.0" text="Publiction Date" />
+      <Label layoutX="84.0" layoutY="267.0" text="Copy Sum" />
+      <Button layoutX="84.0" layoutY="552.0" mnemonicParsing="false" onAction="#handleOk" text="Submit" />
+      <Button layoutX="268.0" layoutY="552.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
+      <DatePicker fx:id="Publicationdate" layoutX="185.0" layoutY="200.0" prefHeight="39.0" prefWidth="206.0" />
+      <Label layoutX="51.0" layoutY="333.0" text="Max Day Borrow" />
+      <TextField fx:id="MaxdayBorrow" layoutX="188.0" layoutY="327.0" prefHeight="39.0" prefWidth="206.0" />
+      <Button layoutX="668.0" layoutY="552.0" mnemonicParsing="false" onAction="#handleAddAuthor" text="Add Author" />
+      <Label layoutX="60.0" layoutY="39.0" prefHeight="27.0" prefWidth="57.0" text="Book" />
+      <Label layoutX="441.0" layoutY="36.0" text="Author" />
+      <Label layoutX="469.0" layoutY="85.0" text="First Name" />
+      <Label layoutX="469.0" layoutY="135.0" text="Last Name" />
+      <Label layoutX="475.0" layoutY="185.0" text="Street" />
+      <Label layoutX="475.0" layoutY="233.0" text="City" />
+      <Label layoutX="476.0" layoutY="280.0" text="State" />
+      <Label layoutX="479.0" layoutY="327.0" text="Zip" />
+      <Label layoutX="458.0" layoutY="376.0" text="Phone Number" />
+      <Label layoutX="471.0" layoutY="430.0" text="Credential" />
+      <Label layoutX="478.0" layoutY="491.0" text="Bio" />
+      <TextField fx:id="FirstNameField" layoutX="600.0" layoutY="79.0" />
+      <TextField fx:id="LastNameField" layoutX="601.0" layoutY="131.0" />
+      <TextField fx:id="streetField" layoutX="601.0" layoutY="181.0" />
+      <TextField fx:id="cityField" layoutX="601.0" layoutY="230.0" />
+      <TextField fx:id="ZipField" layoutX="601.0" layoutY="321.0" />
+      <TextField fx:id="PhoneNumberField" layoutX="601.0" layoutY="376.0" />
+      <TextField fx:id="StateField" layoutX="600.0" layoutY="275.0" />
+      <TextArea fx:id="ShortBioArea" layoutX="600.0" layoutY="481.0" prefHeight="48.0" prefWidth="224.0" />
+      <TextField fx:id="CopySumField" layoutX="185.0" layoutY="261.0" prefHeight="39.0" prefWidth="206.0" />
+      <TextArea fx:id="CredentialsArea" layoutX="601.0" layoutY="419.0" prefHeight="48.0" prefWidth="224.0" />
+      <Label layoutX="76.0" layoutY="406.0" text="Author List" />
+      <Label fx:id="authorListArea" layoutX="189.0" layoutY="403.0" prefHeight="89.0" prefWidth="198.0" />
+  </children>
+</AnchorPane>

@@ -13,12 +13,13 @@ public class MainWindowController {
 	@FXML
 	private ChoiceBox<String> isbnORissn;
 
+	private Main mainApp;
 	private Stage loginStage;
 	private Stage mainStage;
 
-	public void handleLogoutButton(ActionEvent event){
-		mainStage.hide();
-		loginStage.show();
+
+	public void setMainApp(Main mainApp) {
+		this.mainApp = mainApp;
 	}
 
 	public void setLoginStage(Stage loginStage) {
@@ -28,4 +29,31 @@ public class MainWindowController {
 	public void setMainStage(Stage mainStage) {
 		this.mainStage = mainStage;
 	}
+
+	@FXML
+	public void handleLogoutButton(ActionEvent event){
+		mainStage.hide();
+		loginStage.show();
+	}
+	
+	@FXML
+	public void handleAddMemberButton(){
+		System.out.println("call Add_Member");
+		Application.Member tempPerson;// = new Member();
+	//	mainpage.getPersonData().add(tempPerson);
+		boolean SubmitClicked = mainApp.showEditMemberDialog();
+	}
+
+	@FXML
+	public void handleAddBookButton(){
+		System.out.println("call Add_Book");
+		boolean SubmitClicked = mainApp.showAddBookDialog(/*tempBook*/);
+	}
+	
+	@FXML
+	public void handleAddPeriodicalButton(){
+		System.out.println("call Add_Periodical");
+		boolean SubmitClicked = mainApp.showAddPeriodicalDialog(/*tempBook*/);
+	}
+	
 }
