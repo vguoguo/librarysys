@@ -66,8 +66,8 @@ PDA.savePeriodival(1, periodical);
 		/*
 		 * hard code interface user
 		 */
-		AccountEntry user1=new AccountEntry(1,"joy","mwhkqj2",true,true);
-		AccountEntry user2=new AccountEntry(1,"zhithian","123kkiu",true,false);
+		AccountEntry user1=new AccountEntry(1,"joy","123",true,true);
+		AccountEntry user2=new AccountEntry(1,"zhithian","123",true,false);
 		AccountEntry user3=new AccountEntry(1,"joy","1opiu",false,true);
 		AccountMap map=new AccountMap();
 		map.addEntry(user1);
