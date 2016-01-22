@@ -1,8 +1,10 @@
 package UI;
 
 import Application.Address;
+import Application.CheckOutRecord;
 import Application.Member;
 import DataAccess.DataAccess;
+//import DataAccess.MemberDataAccess;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -17,7 +19,12 @@ public class EditMemberController {
 	@FXML
 	private TextField IdField;
 	@FXML
-	private TextField NameField;
+	private TextField FirstNameField;
+	@FXML
+	private TextField LastNameField;
+	@FXML
+	private TextField PhonenumberField;
+	
 	@FXML
 	private TextField streetField;
 	@FXML
@@ -33,16 +40,22 @@ public class EditMemberController {
 	}
 
 
-	/*public void setmember(Member m_member) {
+	public void setmember(Member m_member) {
 		this.m_member = m_member;
-
-	//	IdField.setText(Integer.toString(m_member.getMemberID()));
-		NameField.setText(m_member.getLastName());
-		streetField.setText(m_member.getStreet());
-		ZipField.setText(Integer.toString(m_member.getPostalCode()));
-		cityField.setText(m_member.getCity());
-		
-	}*/
+		if(m_member!=null){
+			IdField.setText(Integer.toString(m_member.getMemberID()));
+			System.out.println(m_member.getFirstname());
+			FirstNameField.setText(m_member.getFirstname());
+			LastNameField.setText(m_member.getLastname());
+			PhonenumberField.setText(m_member.getPhone());
+			StateField.setText(m_member.getAddress().getState());
+			streetField.setText(m_member.getAddress().getStreet());
+			ZipField.setText(Integer.toString(m_member.getAddress().getZip()));
+			cityField.setText(m_member.getAddress().getCity());	
+	
+		}
+		//int memberID,String firstname, String lastname, String phone, Address address,CheckOutRecord checkoutrecord) {
+	}
 	
 	@FXML
 	private void handleOk() {
@@ -51,13 +64,14 @@ public class EditMemberController {
 					StateField.getText(),Integer.parseInt(ZipField.getText()));
 			
 			m_member= new Member(Integer.parseInt(IdField.getText())
-					, NameField.getText(), NameField.getText(),null, address,  null);
+					, FirstNameField.getText(), LastNameField.getText(),PhonenumberField.getText(),
+					address,  null);
 
 			okClicked = true;
 			
 			//Member member=new Member();
-			DataAccess DA =new DataAccess();
-			DA.saveMember(m_member.getMemberID(), m_member);
+			DataAccess MDA =new DataAccess();
+			MDA.saveMember(m_member.getMemberID(), m_member);
 			m_dialogStage.close();
 		}
 	}
@@ -73,41 +87,37 @@ public class EditMemberController {
 	}
 	private boolean isInputValid() {
 		String errorMessage = "";
-
-		if (NameField.getText() == null || NameField.getText().length() == 0) {
-			errorMessage += "No valid first name!\n";
-		}
 		if (IdField.getText() == null || IdField.getText().length() == 0) {
 			errorMessage += "No valid last name!\n";
+		}
+		if (FirstNameField.getText() == null || FirstNameField.getText().length() == 0) {
+			errorMessage += "No valid first name!\n";
+		}
+		if (LastNameField.getText() == null || LastNameField.getText().length() == 0) {
+			errorMessage += "No valid last name!\n";
+		}
+		if (PhonenumberField.getText() == null || PhonenumberField.getText().length() == 0) {
+			errorMessage += "No valid Phone number!\n";
 		}
 		if (streetField.getText() == null || streetField.getText().length() == 0) {
 			errorMessage += "No valid street!\n";
 		}
-		if (streetField.getText() == null || streetField.getText().length() == 0) {
+		if (cityField.getText() == null || cityField.getText().length() == 0) {
+			errorMessage += "No valid street!\n";
+		}
+		if (StateField.getText() == null || StateField.getText().length() == 0) {
 			errorMessage += "No valid State!\n";
 		}
 		if (ZipField.getText() == null || ZipField.getText().length() == 0) {
-			errorMessage += "No valid postal code!\n";
+			errorMessage += "No valid zip code!\n";
 		} else {
 			// try to parse the postal code into an int.
 			try {
 				Integer.parseInt(ZipField.getText());
 			} catch (NumberFormatException e) {
-				errorMessage += "No valid postal code (must be an integer)!\n";
+				errorMessage += "No valid zip code (must be an integer)!\n";
 			}
 		}
-
-		if (cityField.getText() == null || cityField.getText().length() == 0) {
-			errorMessage += "No valid city!\n";
-		}
-
-		/*if (birthdayField.getText() == null || birthdayField.getText().length() == 0) {
-			errorMessage += "No valid birthday!\n";
-		} else {
-			if (!DateUtil.validDate(birthdayField.getText())) {
-				errorMessage += "No valid birthday. Use the format dd.mm.yyyy!\n";
-			}
-		}*/
 
 		if (errorMessage.length() == 0) {
 			return true;

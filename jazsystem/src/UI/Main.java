@@ -2,6 +2,7 @@ package UI;
 
 import java.io.IOException;
 
+import Application.Member;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Modality;
@@ -82,9 +83,11 @@ public class Main extends Application {
 		}
 	}
 	
-	public boolean showEditMemberDialog(){
+	public boolean showEditMemberDialog(Member memeber){
 		// Show the dialog and wait until the user closes it
+		editMembercontroller.setmember(memeber);
 		editMemberDialogStage.showAndWait();
+		
 		return editMembercontroller.isOkClicked();
 	}
 	

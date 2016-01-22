@@ -30,7 +30,7 @@
                   <Font name="System Bold" size="16.0" />
                </font>
             </Label>
-            <Label fx:id="adminRoleLabel" layoutX="550.0" layoutY="42.0" prefHeight="27.0" prefWidth="62.0" text="Admin">
+            <Label fx:id="adminRoleLabel" layoutX="550.0" layoutY="42.0" text="Admin">
                <font>
                   <Font size="16.0" />
                </font>
@@ -75,12 +75,12 @@
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="addBookButton" layoutX="573.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleAddBookButton" prefHeight="30.0" prefWidth="86.0" text="Add Book">
+                  <Button fx:id="addBookButton" layoutX="573.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleAddBookButton" prefHeight="30.0" prefWidth="88.0" text="Add Book">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="addPeriodicalButton" layoutX="670.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleAddPeriodicalButton" prefHeight="30.0" prefWidth="114.0" text="Add Periodical">
+                  <Button fx:id="addPeriodicalButton" layoutX="670.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleAddPeriodicalButton" prefHeight="30.0" prefWidth="121.0" text="Add Periodical">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -171,33 +171,33 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="180.0" prefHeight="27.0" prefWidth="110.0" text="Publication Date">
+                  <Label layoutX="10.0" layoutY="180.0" prefHeight="27.0" prefWidth="125.0" text="Publication Date">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="215.0" prefHeight="27.0" prefWidth="90.0" text="Release Date">
+                  <Label layoutX="10.0" layoutY="215.0" prefHeight="27.0" prefWidth="129.0" text="Release Date">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="250.0" prefHeight="27.0" prefWidth="181.0" text="Max Allowed Checkout Days">
+                  <Label layoutX="10.0" layoutY="250.0" prefHeight="27.0" prefWidth="205.0" text="Max Allowed Checkout Days">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="285.0" prefHeight="27.0" prefWidth="114.0" text="Copies in Library">
+                  <Label layoutX="10.0" layoutY="285.0" prefHeight="27.0" prefWidth="138.0" text="Copies in Library">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
                   <TextArea fx:id="itemTitle" editable="false" layoutX="10.0" layoutY="72.0" prefHeight="60.0" prefWidth="362.0" />
                   <TextField fx:id="itemIdShowField" editable="false" layoutX="54.0" layoutY="145.0" prefHeight="25.0" prefWidth="318.0" />
-                  <TextField fx:id="pubDateField" editable="false" layoutX="122.0" layoutY="181.0" prefHeight="25.0" prefWidth="120.0" />
-                  <TextField fx:id="releaseDateField" editable="false" layoutX="122.0" layoutY="215.0" prefHeight="25.0" prefWidth="120.0" />
-                  <TextField fx:id="maxDaysField" editable="false" layoutX="198.0" layoutY="250.0" prefHeight="25.0" prefWidth="43.0" />
-                  <TextField fx:id="copiesNumField" editable="false" layoutX="198.0" layoutY="285.0" prefHeight="25.0" prefWidth="43.0" />
-                  <Button fx:id="addCopyButton" layoutX="10.0" layoutY="320.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="231.0" text="Add Copy for This Publication">
+                  <TextField fx:id="pubDateField" editable="false" layoutX="147.0" layoutY="181.0" prefHeight="25.0" prefWidth="120.0" />
+                  <TextField fx:id="releaseDateField" editable="false" layoutX="147.0" layoutY="215.0" prefHeight="25.0" prefWidth="120.0" />
+                  <TextField fx:id="maxDaysField" editable="false" layoutX="223.0" layoutY="250.0" prefHeight="25.0" prefWidth="43.0" />
+                  <TextField fx:id="copiesNumField" editable="false" layoutX="223.0" layoutY="285.0" prefHeight="25.0" prefWidth="43.0" />
+                  <Button fx:id="addCopyButton" layoutX="10.0" layoutY="320.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="256.0" text="Add Copy for This Publication">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -263,12 +263,12 @@
                      </font>
                   </Label>
                   <TextField fx:id="memberStreetField" editable="false" layoutX="470.0" layoutY="60.0" prefHeight="25.0" prefWidth="315.0" />
-                  <Button fx:id="showRecordButton" layoutX="235.0" layoutY="15.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="175.0" text="Show Checkout Record">
+                  <Button fx:id="showRecordButton" layoutX="235.0" layoutY="15.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="175.0" text="Checkout Record">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="editMemberButton" layoutX="420.0" layoutY="15.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="190.0" text="Edit Member Information">
+                  <Button fx:id="editMemberButton" layoutX="420.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleEditMemberButton" prefHeight="30.0" prefWidth="190.0" text="Edit Member Info">
                      <font>
                         <Font size="14.0" />
                      </font>

@@ -7,21 +7,25 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="609.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.EditMemberController">
    <children>
-      <ListView layoutX="130.0" layoutY="76.0" prefHeight="379.0" prefWidth="344.0" AnchorPane.topAnchor="76.0" />
-      <Label layoutX="143.0" layoutY="94.0" text="ID" />
+      <ListView layoutX="130.0" layoutY="76.0" prefHeight="432.0" prefWidth="344.0" AnchorPane.topAnchor="76.0" />
+      <Label layoutX="147.0" layoutY="100.0" text="ID" />
       <TextField fx:id="IdField" layoutX="240.0" layoutY="94.0" />
-      <TextField fx:id="NameField" layoutX="240.0" layoutY="156.0" />
-      <TextField fx:id="streetField" layoutX="240.0" layoutY="214.0" />
-      <TextField fx:id="cityField" layoutX="240.0" layoutY="265.0" />
-      <Label layoutX="146.0" layoutY="162.0" text="Name" />
+      <TextField fx:id="FirstNameField" layoutX="240.0" layoutY="148.0" />
+      <TextField fx:id="streetField" layoutX="240.0" layoutY="301.0" />
+      <TextField fx:id="cityField" layoutX="240.0" layoutY="353.0" />
+      <Label layoutX="145.0" layoutY="154.0" text="First Name" />
       <Label layoutX="23.0" layoutY="14.0" text="Add Member Information" />
-      <Label layoutX="146.0" layoutY="220.0" prefHeight="27.0" prefWidth="64.0" text="Street" />
-      <Label layoutX="146.0" layoutY="271.0" text="City" />
-      <Label layoutX="146.0" layoutY="331.0" text="State" />
-      <Label layoutX="143.0" layoutY="393.0" text="Zip" />
-      <TextField fx:id="StateField" layoutX="240.0" layoutY="325.0" />
-      <TextField fx:id="ZipField" layoutX="240.0" layoutY="387.0" />
+      <Label layoutX="146.0" layoutY="307.0" prefHeight="27.0" prefWidth="64.0" text="Street" />
+      <Label layoutX="146.0" layoutY="359.0" text="City" />
+      <Label layoutX="146.0" layoutY="411.0" text="State" />
+      <Label layoutX="143.0" layoutY="463.0" text="Zip" />
+      <TextField fx:id="StateField" layoutX="240.0" layoutY="405.0" />
+      <TextField fx:id="ZipField" layoutX="240.0" layoutY="457.0" />
       <Button layoutX="300.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleOk" text="Submit" />
       <Button layoutX="435.0" layoutY="528.0" mnemonicParsing="false" onAction="#handleCancel" text="Cancel" />
+      <Label layoutX="146.0" layoutY="210.0" text="Last Name" />
+      <TextField fx:id="LastNameField" layoutX="240.0" layoutY="204.0" />
+      <Label layoutX="140.0" layoutY="255.0" text="Phone Number" />
+      <TextField fx:id="PhonenumberField" layoutX="240.0" layoutY="243.0" prefHeight="39.0" prefWidth="194.0" />
    </children>
 </AnchorPane>

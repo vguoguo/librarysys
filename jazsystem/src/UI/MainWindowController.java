@@ -1,17 +1,41 @@
 package UI;
 
+import Application.Address;
+import Application.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class MainWindowController {
 	@FXML
-	private TextField itemIdField;
+	private TextField itemIdSearchField;
 
 	@FXML
-	private ChoiceBox<String> isbnORissn;
+	private ChoiceBox<String> isbnChoicebox;
+	
+	@FXML
+	private Label accountNameLabel;
+	
+	@FXML
+	private Label adminRoleLabel;
+	
+	@FXML
+	private Label libRoleLabel;
+	
+	@FXML
+	private Button addBookButton;
+	
+	@FXML
+	private Button addPeriodicalButton;
+	
+	@FXML
+	private Button beginCheckoutButton;
+	
+	
 
 	private Main mainApp;
 	private Stage loginStage;
@@ -41,9 +65,20 @@ public class MainWindowController {
 		System.out.println("call Add_Member");
 		Application.Member tempPerson;// = new Member();
 	//	mainpage.getPersonData().add(tempPerson);
-		boolean SubmitClicked = mainApp.showEditMemberDialog();
+		boolean SubmitClicked = mainApp.showEditMemberDialog(null);
 	}
 
+	public void handleEditMemberButton(){
+		System.out.println("call Edit_Member");
+//test code			
+		Address address = new Address("4th","fairfeld","iowa",52557);
+		Member tempPerson = new Member(1001,"abd","def","10086",address,null);
+//test code				// String phone, Address address,CheckOutRecord checkoutrecord) {
+					
+	//	mainpage.getPersonData().add(tempPerson);
+		boolean SubmitClicked = mainApp.showEditMemberDialog(tempPerson);
+	}
+	
 	@FXML
 	public void handleAddBookButton(){
 		System.out.println("call Add_Book");
