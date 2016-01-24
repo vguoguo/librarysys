@@ -5,6 +5,7 @@ import java.util.List;
 
 import Application.AccountEntry;
 import Application.AccountMap;
+import Application.Author;
 import Application.Book;
 import Application.CheckOutEntry;
 import Application.CheckOutRecord;
@@ -185,6 +186,24 @@ public boolean Checkout(Member member,Periodical periodical){
 	data.savePeriodical(periodical.getItemID(), periodical);
 	return true;
 }
+/*
+ * search Author
+ */
+public Author searchAuthor(int authorID){
+	return new DataAccess().readAuthor(authorID);
+}
 
+/*
+ * add new Author
+ */
+public void saveAuthor(Author author){
+	new DataAccess().saveAuthor(author.getAuthorkey(), author);
+}
+/*
+ * generate AuthorID
+ */
+public int generateAuthorID(){
+	return new DataAccess().generateAuthorID();
+}
 
 }

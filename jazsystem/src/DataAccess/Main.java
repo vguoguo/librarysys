@@ -60,9 +60,6 @@ PDA.savePeriodival(1, periodical);
 				membe.getCheckoutrecord().getCheckoutID()+"**checkout entry date**"+membe.getCheckoutrecord().getCheckoutentries().get(0).getM_CheckoutDate()+"book int "+
 				membe.getCheckoutrecord().getCheckoutentries().get(0).getBookORperiodical().getItemID()); 
 		
-		
-		
-		
 		/*
 		 * hard code interface user
 		 */
@@ -214,7 +211,7 @@ PDA.savePeriodival(1, periodical);
 		Member member =data.readMember(3);
 		System.out.println("**memeber**"+member.getFirstname()+"****"+member.getAddress().getStreet()+"#####");
 		Periodical periodical=data.readPeriodical("P76868379");
-		System.out.println("****"+periodical.getMax_day_borrow()+"****"+periodical.getAuthors().get(0).getCredential()+"####"+periodical.getCopies().get(0).getItemID()+"####"+"$$$$$$");
+		System.out.println("****"+periodical.getMax_day_borrow()+"****"+"####"+periodical.getCopies().get(0).getItemID()+"####"+"$$$$$$");
 		Book book= data.readBook("B766686565");
 		if(book == null){
 			System.out.println("****");
@@ -222,13 +219,39 @@ PDA.savePeriodival(1, periodical);
 		System.out.println("****"+book.getTitle()+"****"+book.getAuthors().get(0).getFirstname()+"####"+book.getCopies().get(0).getItemID()+"####"+book.getAuthors().get(0).getAddress().getState()+"$$$$$$");
 	
 		SystemController sys=new SystemController();
-		sys.Checkout(member3, periodicallist.get(0));
+		/////////////check out ////////////
+		sys.CheckOutBook(member4, book1);
+		sys.CheckOutBook(member3, book2);
+		sys.CheckOutBook(member2, book1);
+		sys.CheckOutBook(member4, book3);
+		sys.CheckOutBook(member1, book1);
+		
+		sys.Checkout(member1, periodical5);
+		sys.Checkout(member2, periodical6);
+		
+		for( Member   a: memberlist){
+			data.saveMember(a.getMemberID(), a);
+		}
+		
+		for(Book a:booklist){
+			i++;
+			data.saveBook(a.getItemID(), a);
+			System.out.println("**"+i+"**");
+		}
+		for(Periodical a:periodicallist){
+			data.savePeriodical(a.getItemID(), a);
+		}
+		
+		
 		
 		member =data.readMember(3);
 		System.out.println("**memeber**"+member.getFirstname()+"****"+member.getAddress().getStreet()+"#####"+member.getCheckoutrecord().getCheckoutentries().get(0).getM_CheckoutDate()+"^^^^^^"+member.getCheckoutrecord().getCheckoutentries().get(0).getCopy().getCopiID()+"@@@@@"+member.getCheckoutrecord().getCheckoutentries().get(0).getCopy().isAvailable());
 		periodical=data.readPeriodical("P766686565333");
-		System.out.println("****"+periodical.getMax_day_borrow()+"****"+periodical.getAuthors().get(0).getCredential()+"####"+periodical.getCopies().get(0).getItemID()+"####"+"$$$$$$");
+		System.out.println("****"+periodical.getMax_day_borrow()+"****"+"####"+periodical.getCopies().get(0).getItemID()+"####"+"$$$$$$");
 		   
+		
+		
+		System.out.println((data.readMember(memberlist.get(0).getMemberID())).getCheckoutrecord().getCheckoutentries().get(1).getM_DueDate());
 	
 	}
 

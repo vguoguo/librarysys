@@ -23,7 +23,14 @@ public class LoginController {
 
 	private Stage loginStage;
 	private Stage mainStage;
-
+	
+	
+	public void CrossClickButton(ActionEvent event){
+		usernameField.setText("");
+	}
+	public void CrossButton(ActionEvent event){
+	passwordField.setText("");
+	}
 	public void handleLoginButton(ActionEvent event){
 		String red="-fx-border-color: #FF0000;";
 		usernameField.setStyle("");

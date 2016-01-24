@@ -8,6 +8,7 @@ import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import Application.Author;
 import Application.Book;
 import Application.Member;
 import Application.Periodical;
@@ -16,8 +17,9 @@ public class DataAccess {
 	public static final String separator=System.getProperty("file.separator"); 
 	public static final String OUTPUT_DIR = System.getProperty("user.dir") 
 			+ separator+"doc"+separator+"Storage"+separator;
-	public int generateMemberID(){
-		File directory = new File(OUTPUT_DIR+"Member");
+	
+	public int generateID(String folder){
+		File directory = new File(OUTPUT_DIR+folder);
         //get all the files from a directory
         File[] fList = directory.listFiles();
         if(fList.length==0){
@@ -49,7 +51,19 @@ public class DataAccess {
         }
         }
 		
+		
 	}
+	
+	
+	public int generateAuthorID(){
+		return generateID("Author");
+	}
+	
+	public int generateMemberID(){
+		return generateID("Member");
+	}
+	
+	
 	public void saveMember(int memberkey, Member member) {
 		// TODO Auto-generated method stub
 		ObjectOutputStream out = null;
@@ -184,6 +198,50 @@ public class DataAccess {
 		return book;
 	}
 	
+	public void saveAuthor(int authorkey, Author author) {
+		// TODO Auto-generated method stub
+		ObjectOutputStream out = null;
+		try {
+			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR+"Author", String.valueOf(authorkey));
+			out = new ObjectOutputStream(Files.newOutputStream(path));
+			out.writeObject(author);
+		} catch(IOException e) {
+			e.printStackTrace();
+		} finally {
+			if(out != null) {
+				try {
+					out.close();
+				} catch(Exception e) {}
+			}
+		}
+		
+	}
+	
+	public Author readAuthor(int authorkey) {
+		// TODO Auto-generated method stub
+		ObjectInputStream in = null;
+		Author author = null;
+		try {
+			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR+"Author", String.valueOf(authorkey));
+			File f = new File(OUTPUT_DIR+"Author");
+			if (!f.exists()){
+				System.out.println("Book doesnt exist");
+				return null;
+				
+			}
+			in = new ObjectInputStream(Files.newInputStream(path));
+			author = (Author)in.readObject();
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(in != null) {
+				try {
+					in.close();
+				} catch(Exception e) {}
+			}
+		}
+		return author;
+	}
 	
 	
 	

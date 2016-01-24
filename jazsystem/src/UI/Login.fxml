@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
@@ -9,6 +11,9 @@
 <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.LoginController">
    <children>
       <Button layoutX="90.0" layoutY="249.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="33.0" prefWidth="127.0" text="Login">
+         <graphic>
+                    
+                </graphic>
          <font>
             <Font size="18.0" />
          </font>
@@ -28,7 +33,7 @@
             <Font size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="usernameField" layoutX="214.0" layoutY="117.0" >
+      <TextField fx:id="usernameField" layoutX="214.0" layoutY="117.0">
          <font>
             <Font size="18.0" />
          </font>
@@ -43,5 +48,18 @@
             <Font size="24.0" />
          </font>
       </Label>
+      <Button ellipsisString="" layoutX="411.0" layoutY="117.0" mnemonicParsing="false" onAction="#CrossClickButton" opacity="0.0" prefHeight="35.0" prefWidth="35.0" text=" " />
+      <Button ellipsisString="" layoutX="411.0" layoutY="162.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#CrossButton" opacity="0.0" prefHeight="35.0" prefWidth="35.0" text=" " />
+      <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="411.0" layoutY="117.0" nodeOrientation="INHERIT">
+         <image>
+            <Image url="@X.png" />
+            
+         </image>
+      </ImageView>
+              <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="411.0" layoutY="162.0" nodeOrientation="INHERIT">
+                 <image>
+                     <Image url="@X.png" />
+                 </image>
+              </ImageView>   
    </children>
 </AnchorPane>
