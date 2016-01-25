@@ -70,7 +70,7 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="searchItemButton" layoutX="382.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="68.0" text="Search">
+                  <Button fx:id="searchItemButton" layoutX="382.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleSearchItem" prefHeight="30.0" prefWidth="68.0" text="Search">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -90,7 +90,7 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <BorderPane layoutX="382.0" layoutY="45.0" prefHeight="320.0" prefWidth="404.0">
+                  <BorderPane fx:id="authorBorderPane" layoutX="382.0" layoutY="45.0" prefHeight="320.0" prefWidth="404.0">
                      <bottom>
                         <TextArea fx:id="biographyTextArea" editable="false" prefHeight="85.0" prefWidth="377.0" promptText="Biography" BorderPane.alignment="CENTER">
                            <BorderPane.margin>
@@ -102,7 +102,7 @@
                         <ListView fx:id="authorListview" prefHeight="203.0" prefWidth="144.0" BorderPane.alignment="CENTER" />
                      </left>
                      <center>
-                        <AnchorPane fx:id="authorAnchorPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+                        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                            <children>
                               <Label fx:id="authorLastnameLabel" layoutX="125.0" prefHeight="22.0" prefWidth="120.0" text="(Lastname)" textFill="#54839e">
                                  <font>
@@ -176,7 +176,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="215.0" prefHeight="27.0" prefWidth="129.0" text="Release Date">
+                  <Label fx:id="releaseLabel" disable="true" layoutX="10.0" layoutY="215.0" prefHeight="27.0" prefWidth="129.0" text="Release Month">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -194,14 +194,35 @@
                   <TextArea fx:id="itemTitle" editable="false" layoutX="10.0" layoutY="72.0" prefHeight="60.0" prefWidth="362.0" />
                   <TextField fx:id="itemIdShowField" editable="false" layoutX="54.0" layoutY="145.0" prefHeight="25.0" prefWidth="318.0" />
                   <TextField fx:id="pubDateField" editable="false" layoutX="147.0" layoutY="181.0" prefHeight="25.0" prefWidth="120.0" />
-                  <TextField fx:id="releaseDateField" editable="false" layoutX="147.0" layoutY="215.0" prefHeight="25.0" prefWidth="120.0" />
                   <TextField fx:id="maxDaysField" editable="false" layoutX="223.0" layoutY="250.0" prefHeight="25.0" prefWidth="43.0" />
                   <TextField fx:id="copiesNumField" editable="false" layoutX="223.0" layoutY="285.0" prefHeight="25.0" prefWidth="43.0" />
-                  <Button fx:id="addCopyButton" layoutX="10.0" layoutY="320.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="256.0" text="Add a Copy for This Publication">
+                  <Button fx:id="addCopyButton" layoutX="10.0" layoutY="320.0" mnemonicParsing="false" onAction="#handleAddCopyButton" prefHeight="30.0" prefWidth="256.0" text="Add a Copy for This Publication">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Button>
+                  <ChoiceBox fx:id="releaseChoiceBox" disable="true" layoutX="147.0" layoutY="215.0" prefHeight="25.0" prefWidth="120.0" value="        ">
+                     <items>
+                        <FXCollections fx:factory="observableArrayList">
+                           <String fx:value="        " />
+                           <String fx:value="Jan 2016" />
+                           <String fx:value="Dec 2015" />
+                           <String fx:value="Nov 2015" />
+                           <String fx:value="Oct 2015" />
+                           <String fx:value="Sep 2015" />
+                           <String fx:value="Aug 2015" />
+                           <String fx:value="Jul 2015" />
+                           <String fx:value="Jun 2015" />
+                           <String fx:value="May 2015" />
+                           <String fx:value="Apr 2015" />
+                           <String fx:value="Mar 2015" />
+                           <String fx:value="Feb 2015" />
+                           <String fx:value="Jan 2015" />
+                           <String fx:value="Dec 2014" />
+                           
+                        </FXCollections>
+                     </items>
+                  </ChoiceBox>
                </children></AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
                <children>

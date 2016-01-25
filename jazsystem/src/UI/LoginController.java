@@ -32,9 +32,11 @@ public class LoginController {
 	
 	public void CrossClickButton(ActionEvent event){
 		usernameField.setText("");
+		usernameField.requestFocus();
 	}
 	public void CrossButton(ActionEvent event){
-	passwordField.setText("");
+		passwordField.setText("");
+		passwordField.requestFocus();
 	}
 	public void handleLoginButton(ActionEvent event){
 		String red="-fx-border-color: #FF0000;";
@@ -63,6 +65,9 @@ public class LoginController {
 					 }else{
 						setRoleForMainStage(account);
 						loginStage.hide();
+						usernameField.clear();
+						passwordField.clear();
+						usernameField.requestFocus();
 						mainStage.show();
 					 }
 				}else{
@@ -97,6 +102,10 @@ public class LoginController {
 
 	public void setMainStage(Stage mainStage) {
 		this.mainStage = mainStage;
+	}
+	
+	public void usernameRequestFocus(){
+		usernameField.requestFocus();
 	}
 
 }

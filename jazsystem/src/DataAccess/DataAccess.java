@@ -89,13 +89,12 @@ public class DataAccess {
 		Member member = null;
 		try {
 			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR+"Member", String.valueOf(memberkey));
-			in = new ObjectInputStream(Files.newInputStream(path));
-			File f = new File(OUTPUT_DIR+"Member");
+			File f = new File(OUTPUT_DIR+"Member"+separator+String.valueOf(memberkey));
 			if (!f.exists()){
 				System.out.println("member doesnt exist");
 				return null;
-				
 			}
+			in = new ObjectInputStream(Files.newInputStream(path));
 			member = (Member)in.readObject();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -108,6 +107,38 @@ public class DataAccess {
 		}
 		return member;
 	}
+	
+	public int getNextMemberId(){
+		ObjectInputStream in = null;
+		Member member = null;
+		int maxId = 0;
+		File[] subFiles;
+		try {
+			File dirName = new File(OUTPUT_DIR+"Member");
+			if (!dirName.exists()){
+				System.out.println("Member directory exist");
+				return 0;
+			}
+			subFiles = dirName.listFiles();
+			for (int i=0; i<subFiles.length; i++){
+				in = new ObjectInputStream(Files.newInputStream(subFiles[i].toPath()));
+				member = (Member)in.readObject();
+				if (member.getMemberID() > maxId)
+					maxId = member.getMemberID();
+			}			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			if(in != null) {
+				try {
+					in.close();
+				} catch(Exception e) {}
+			}
+		}
+		
+		return maxId + 1;
+	}
+	
 	public void savePeriodical(String periodicalkey, Periodical periodical) {
 		// TODO Auto-generated method stub
 		ObjectOutputStream out = null;
@@ -133,13 +164,13 @@ public class DataAccess {
 		Periodical periodical = null;
 		try {
 			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR+"Periodical", periodicalkey);
-			in = new ObjectInputStream(Files.newInputStream(path));
-			File f = new File(OUTPUT_DIR+"Periodical");
+			File f = new File(OUTPUT_DIR+"Periodical"+separator+periodicalkey);
 			if (!f.exists()){
 				System.out.println("periodical doesnt exist");
 				return null;
 				
 			}
+			in = new ObjectInputStream(Files.newInputStream(path));
 			periodical = (Periodical)in.readObject();
 		} catch(Exception e) {
 			e.printStackTrace();
@@ -178,7 +209,7 @@ public class DataAccess {
 		Book book = null;
 		try {
 			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR+"Book", ISBN);
-			File f = new File(OUTPUT_DIR+"Book");
+			File f = new File(OUTPUT_DIR+"Book"+separator+ISBN);
 			if (!f.exists()){
 				System.out.println("Book doesnt exist");
 				return null;
@@ -223,7 +254,7 @@ public class DataAccess {
 		Author author = null;
 		try {
 			Path path = FileSystems.getDefault().getPath(OUTPUT_DIR+"Author", String.valueOf(authorkey));
-			File f = new File(OUTPUT_DIR+"Author");
+			File f = new File(OUTPUT_DIR+"Author"+separator+String.valueOf(authorkey));
 			if (!f.exists()){
 				System.out.println("Book doesnt exist");
 				return null;

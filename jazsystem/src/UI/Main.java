@@ -47,11 +47,13 @@ public class Main extends Application {
 		loginController.setMainStage(mainStage);
 		mainWindowController.setLoginStage(loginStage);
 		mainWindowController.setMainStage(mainStage);
+		mainWindowController.addListenerToIsbnChoicebox();
 
 		initEditMemberDialog();
 		initAddBookDialog();
 		initAddPeriodicalDialog();
 
+		loginController.usernameRequestFocus();
 		loginStage.show();
 	}
 
@@ -69,7 +71,7 @@ public class Main extends Application {
 
 			// Create the dialog Stage.
 			editMemberDialogStage = new Stage();
-			editMemberDialogStage.setTitle("Edit Person");
+			editMemberDialogStage.setTitle("Member Info");
 			editMemberDialogStage.initModality(Modality.WINDOW_MODAL);
 			editMemberDialogStage.initOwner(mainStage);
 			Scene scene = new Scene(page);
@@ -84,9 +86,9 @@ public class Main extends Application {
 		}
 	}
 	
-	public boolean showEditMemberDialog(Member memeber){
+	public boolean showEditMemberDialog(Member member){
 		// Show the dialog and wait until the user closes it
-		editMembercontroller.setmember(memeber);
+		editMembercontroller.setmember(member);
 		editMemberDialogStage.showAndWait();
 		
 		return editMembercontroller.isOkClicked();
@@ -119,12 +121,13 @@ public class Main extends Application {
 	
 	public boolean showAddBookDialog(){
 		// Show the dialog and wait until the user closes it
+		addBookcontroller.clearInputField();
 		addBookDialogStage.showAndWait();
 		return addBookcontroller.isOkClicked();
 	}
 	
 	private void initAddPeriodicalDialog(/*Book book*/) {
-		System.out.println("showAddPeriodicalDialog");
+//		System.out.println("showAddPeriodicalDialog");
 		try {
 			// Load the fxml file and create a new stage for the popup dialog.
 			FXMLLoader loader = new FXMLLoader();
@@ -151,6 +154,7 @@ public class Main extends Application {
 
 	public boolean showAddPeriodicalDialog(){
 		// Show the dialog and wait until the user closes it
+		
 		addPeriodicalDialogStage.showAndWait();
 		return addPeriodicalcontroller.isOkClicked();
 	}

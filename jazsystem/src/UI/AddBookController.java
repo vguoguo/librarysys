@@ -62,6 +62,16 @@ public class AddBookController {
 		this.m_dialogStage = dialogStage;
 	}
 
+	public void clearInputField(){
+		ISBNField.clear();
+		TitleField.clear();
+		Publicationdate.getEditor().clear();
+		CopySumField.clear();
+		MaxdayBorrow.clear();
+		authorListArea.setText("");
+		SetAuthorasNull();
+	}
+	
 /*
 	public void setBook(Book m_book) {
 		this.m_book = m_book;
@@ -100,7 +110,7 @@ public class AddBookController {
 	
 	@FXML
 	private void handleAddAuthor() {
-		System.out.println("handleAddAuthor");
+//		System.out.println("handleAddAuthor");
 		//m_dialogStage.close();
 		if(isInputValidofAuthor()){
 			Address address = new Address(streetField.getText(),cityField.getText(),
