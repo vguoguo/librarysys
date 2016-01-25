@@ -30,6 +30,7 @@ public class Main extends Application {
 		FXMLLoader loginLoader = new FXMLLoader(getClass().getResource("Login.fxml"));
 		Parent loginPane = loginLoader.load();
 		LoginController loginController = loginLoader.getController();
+		loginController.setMainApp(this);
 		FXMLLoader mainWindowLoader = new FXMLLoader(getClass().getResource("MainWindow.fxml"));
 		Parent mainPane = mainWindowLoader.load();
 		mainWindowController = mainWindowLoader.getController();
@@ -152,6 +153,10 @@ public class Main extends Application {
 		// Show the dialog and wait until the user closes it
 		addPeriodicalDialogStage.showAndWait();
 		return addPeriodicalcontroller.isOkClicked();
+	}
+
+	public MainWindowController getMainWindowController() {
+		return mainWindowController;
 	}
 	
 }

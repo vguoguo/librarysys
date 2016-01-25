@@ -19,7 +19,7 @@ import Application.Member;
 import Application.Periodical;
 import UI.SystemController;
 
-public class Main {
+public class InitData {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -64,8 +64,8 @@ PDA.savePeriodival(1, periodical);
 		 * hard code interface user
 		 */
 		AccountEntry user1=new AccountEntry(1,"joy","123",true,true);
-		AccountEntry user2=new AccountEntry(1,"zhithian","123",true,false);
-		AccountEntry user3=new AccountEntry(1,"joy","1opiu",false,true);
+		AccountEntry user2=new AccountEntry(2,"zhitian","123",true,false);
+		AccountEntry user3=new AccountEntry(3,"abdel","123",false,true);
 		AccountMap map=new AccountMap();
 		map.addEntry(user1);
 		map.addEntry(user2);
@@ -90,8 +90,8 @@ PDA.savePeriodival(1, periodical);
 				/****Book1*****/
 		List<Author> authors1=new ArrayList<Author>();
 		
-		authors1.add(new Author("Michel","hanks","87698876",new Address("1N ","sanDiego","CALIFORNIA",44257),"Physics nobel","born in atlanata in 1962"));
-		authors1.add(new Author("halima","messoud","645811292",new Address("10N st ","new york","NEW YORK",177771),"classy fan","we cant"));
+		authors1.add(new Author("Michel","hanks","87698876",new Address("1N ","sanDiego","CA",44257),"Physics nobel","born in atlanata in 1962"));
+		authors1.add(new Author("halima","messoud","645811292",new Address("10N st ","new york","NY",17761),"classy fan","we cant"));
 
 		Book book1=new Book("766686565", LocalDate.of(1989, 11, 19), "Le livre de la mort", authors1,new ArrayList<Copy>()
 				, true, 21);
@@ -104,9 +104,9 @@ PDA.savePeriodival(1, periodical);
 		booklist.add(book1);
 		/****Book2*****/
 		List<Author> authors2=new ArrayList<Author>();
-		authors2.add(new Author("Michel","hanks","87698876",new Address("2768st ","sanDiego","CALIFORNIA",44257),"Physics nobel","born in atlanata in 1962"));
-		authors2.add(new Author("slater","kelly","87999876",new Address("19st ","santa barbara","FLORIDA",44347),"chimie","bndkh"));
-		authors2.add(new Author("nissrine","laajaj","64596720",new Address("190st ","norhore","California",143781),"1 million fan","we cant"));
+		authors2.add(new Author("Michel","hanks","87698876",new Address("2768st ","sanDiego","CA",44257),"Physics nobel","born in atlanata in 1962"));
+		authors2.add(new Author("slater","kelly","87999876",new Address("19st ","santa barbara","FL",44347),"chimie","bndkh"));
+		authors2.add(new Author("nissrine","laajaj","64596720",new Address("190st ","norhore","CA",14378),"1 million fan","we cant"));
 
 		Book book2=new Book("7666823465", LocalDate.of(1971, 01, 10), "the art of living", authors2, new ArrayList<Copy>(),
 		true, 7);
@@ -119,8 +119,8 @@ PDA.savePeriodival(1, periodical);
 		booklist.add(book2);
 		/****Book3*****/
 		List<Author> authors3=new ArrayList<Author>();
-		authors3.add(new Author("amal","hyani","645882782",new Address("1N st ","burnind","OHIO",143211),"10 awards","we cant"));
-		authors3.add(new Author("pupo","miguel","81119876",new Address("1st ","vegas","Texas",987677),"soccerplayer","no idea"));
+		authors3.add(new Author("amal","hyani","645882782",new Address("1N st ","burnind","OH",14321),"10 awards","we cant"));
+		authors3.add(new Author("pupo","miguel","81119876",new Address("1st ","vegas","TX",98767),"soccerplayer","no idea"));
 		Book book3=new Book("7666843965", LocalDate.of(1990, 01, 29), "mastering the cold", authors3, new ArrayList<Copy>(),
 		true, 7);
 		
@@ -129,7 +129,7 @@ PDA.savePeriodival(1, periodical);
 		booklist.add(book3);
 		/****Book4*****/
 		List<Author> authors4=new ArrayList<Author>();
-		authors4.add(new Author("Andy","Irons","879900296",new Address("19st ","north shore","hawaii",12281),"besteseller","indisponible"));
+		authors4.add(new Author("Andy","Irons","879900296",new Address("19st ","north shore","HI",12281),"besteseller","indisponible"));
 		Book book4=new Book("766686589", LocalDate.of(1971, 01, 10), "the art of living", authors4, new ArrayList<Copy>(),
 		true, 21);
 		
@@ -174,22 +174,22 @@ PDA.savePeriodival(1, periodical);
 		
 		/****member1*****/
 	
-		Member member1=new Member(1,"abdelillah","faddaoui","6414513125",new Address("1000 N ","fairfield","IOWA",52557)
+		Member member1=new Member(1,"abdelillah","faddaoui","6414513125",new Address("1000 N ","fairfield","IA",52557)
 				,new CheckOutRecord());
 		memberlist.add(member1);
 		/****member2*****/
 		
-		Member member2=new Member(2,"joy","genious","642353125",new Address("1000 N ","fairfield","IOWA",52557)
+		Member member2=new Member(2,"joy","genious","642353125",new Address("1000 N ","fairfield","IA",52557)
 				,new CheckOutRecord());
 		memberlist.add(member2);
 		/****member3*****/
 		
-		Member member3=new Member(3,"zhitian","robert","6414513125",new Address("1000 N ","fairfield","IOWA",52557)
+		Member member3=new Member(3,"zhitian","robert","6414513125",new Address("1000 N ","fairfield","IA",52557)
 				,new CheckOutRecord());
 		memberlist.add(member3);
 		/****member4*****/
 		
-		Member member4=new Member(4,"tina","prof","6414513125",new Address("4th ST ","fairfield","IOWA",52556)
+		Member member4=new Member(4,"tina","prof","6414513125",new Address("4th ST ","fairfield","IA",52556)
 				,new CheckOutRecord());
 		memberlist.add(member4);
 	/*	LocalDate m_CheckoutDate, LocalDate m_DueDate, LocalDate datereturned, boolean isreturned,Copy copy

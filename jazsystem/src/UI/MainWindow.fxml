@@ -35,7 +35,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="libRoleLabel" disable="true" layoutX="626.0" layoutY="42.0" text="Librarian">
+            <Label fx:id="libRoleLabel" layoutX="626.0" layoutY="42.0" text="Librarian">
                <font>
                   <Font size="16.0" />
                </font>
@@ -104,7 +104,7 @@
                      <center>
                         <AnchorPane fx:id="authorAnchorPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                            <children>
-                              <Label fx:id="authorLastnameLabel" layoutX="110.0" prefHeight="22.0" prefWidth="118.0" text="Lastname" textFill="#54839e">
+                              <Label fx:id="authorLastnameLabel" layoutX="125.0" prefHeight="22.0" prefWidth="120.0" text="(Lastname)" textFill="#54839e">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
@@ -114,7 +114,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <Label fx:id="authorFirstnameLabel" layoutX="5.0" prefHeight="22.0" prefWidth="100.0" text="Firstname" textFill="#54839e">
+                              <Label fx:id="authorFirstnameLabel" layoutX="5.0" prefHeight="22.0" prefWidth="120.0" text="(Firstname)" textFill="#54839e">
                                  <font>
                                     <Font name="System Bold" size="14.0" />
                                  </font>
@@ -197,7 +197,7 @@
                   <TextField fx:id="releaseDateField" editable="false" layoutX="147.0" layoutY="215.0" prefHeight="25.0" prefWidth="120.0" />
                   <TextField fx:id="maxDaysField" editable="false" layoutX="223.0" layoutY="250.0" prefHeight="25.0" prefWidth="43.0" />
                   <TextField fx:id="copiesNumField" editable="false" layoutX="223.0" layoutY="285.0" prefHeight="25.0" prefWidth="43.0" />
-                  <Button fx:id="addCopyButton" layoutX="10.0" layoutY="320.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="256.0" text="Add Copy for This Publication">
+                  <Button fx:id="addCopyButton" layoutX="10.0" layoutY="320.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="256.0" text="Add a Copy for This Publication">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -210,7 +210,7 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Button fx:id="searchMemberButton" layoutX="125.0" layoutY="15.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="100.0" text="Search">
+                  <Button fx:id="searchMemberButton" layoutX="125.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleSearchMember" prefHeight="30.0" prefWidth="100.0" text="Search">
                      <font>
                         <Font size="14.0" />
                      </font>

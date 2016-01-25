@@ -21,9 +21,14 @@ public class LoginController {
 	@FXML
 	private PasswordField passwordField;
 
+	private Main mainApp;
 	private Stage loginStage;
 	private Stage mainStage;
 	
+	
+	public void setMainApp(Main mainApp) {
+		this.mainApp = mainApp;
+	}
 	
 	public void CrossClickButton(ActionEvent event){
 		usernameField.setText("");
@@ -56,6 +61,7 @@ public class LoginController {
 						ErrorAlert("Login Failed ","Password Error","Retype the Password !");
 						passwordField.setStyle(red);
 					 }else{
+						setRoleForMainStage(account);
 						loginStage.hide();
 						mainStage.show();
 					 }
@@ -67,6 +73,12 @@ public class LoginController {
 			
 		}
 	}
+	
+	private void setRoleForMainStage(AccountEntry account){
+		MainWindowController mainWindowController = this.mainApp.getMainWindowController();
+		mainWindowController.initRole(account);
+	}
+	
 	public void ErrorAlert(String a,String b,String c){
 		Alert alert = new Alert(AlertType.ERROR);
 		alert.setTitle(a);
