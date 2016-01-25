@@ -85,7 +85,7 @@
                         <Font size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="beginCheckoutButton" layoutX="461.0" layoutY="10.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="101.0" text="CheckOut..." textFill="#e66a00" underline="true">
+                  <Button fx:id="beginCheckoutButton" layoutX="461.0" layoutY="10.0" mnemonicParsing="false" onAction="#handleBeginCheckoutButton" prefHeight="30.0" prefWidth="101.0" text="CheckOut..." textFill="#e66a00" underline="true">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
@@ -284,9 +284,9 @@
                      </font>
                   </Label>
                   <TextField fx:id="memberStreetField" editable="false" layoutX="470.0" layoutY="60.0" prefHeight="25.0" prefWidth="315.0" />
-                  <Button fx:id="showRecordButton" layoutX="235.0" layoutY="15.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="175.0" text="Checkout Record">
+                  <Button fx:id="showRecordButton" layoutX="235.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleShowRecordButton" prefHeight="30.0" prefWidth="175.0" text="Checkout Record" textFill="#e66a00">
                      <font>
-                        <Font size="14.0" />
+                        <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
                   <Button fx:id="editMemberButton" layoutX="420.0" layoutY="15.0" mnemonicParsing="false" onAction="#handleEditMemberButton" prefHeight="30.0" prefWidth="190.0" text="Edit Member Info">

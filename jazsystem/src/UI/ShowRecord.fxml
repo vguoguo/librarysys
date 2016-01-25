@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.collections.*?>
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import fxmltableview.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.ShowRecordController">
+   <top>
+      <AnchorPane fx:id="topAnchorPane" prefHeight="68.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="15.0" layoutY="11.0" text="Member" />
+            <TextField fx:id="memberField" editable="false" layoutX="15.0" layoutY="35.0" prefHeight="23.0" prefWidth="119.0" />
+            <TextField fx:id="titleField" editable="false" layoutX="152.0" layoutY="35.0" prefHeight="23.0" prefWidth="199.0" />
+            <Label layoutX="152.0" layoutY="11.0" text="Book Title" />
+            <Label layoutX="363.0" layoutY="11.0" text="Max Checkout Days" />
+            <TextField fx:id="maxDaysField" editable="false" layoutX="429.0" layoutY="35.0" prefHeight="23.0" prefWidth="49.0" />
+            <Button layoutX="622.0" layoutY="18.0" mnemonicParsing="false" onAction="#handleConfirmCheckoutButton" prefHeight="33.0" prefWidth="168.0" text="Confirm Checkout" textFill="#e66a00">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Button>
+            <TextField fx:id="fineField" editable="false" layoutX="530.0" layoutY="35.0" prefHeight="23.0" prefWidth="49.0" text="1.5$" />
+            <Label layoutX="506.0" layoutY="11.0" text="Fine per Day" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <AnchorPane prefHeight="489.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <TableView fx:id="entryTableView" layoutX="5.0" prefHeight="488.0" prefWidth="793.0">
+              <columns>
+                <TableColumn fx:id="checkoutDateColumn" prefWidth="112.0" text="Checkout Date">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="checkoutDate" />
+                   </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="108.0" text="Due Date">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="dueDate" />
+                   </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="151.0" text="Book ID">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="itemId" />
+                   </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="239.0" text="Title">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="title" />
+                   </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="71.0" text="Copy ID">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="copyId" />
+                   </cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="118.0" text="Returned Date">
+                   <cellValueFactory>
+                       <PropertyValueFactory property="retDate" />
+                   </cellValueFactory>
+                </TableColumn>
+              </columns>
+              <sortOrder>
+                 <fx:reference source="checkoutDateColumn" />
+              </sortOrder>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </center>
+   <bottom>
+      <AnchorPane prefHeight="46.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="719.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleCloseButton" prefHeight="33.0" prefWidth="67.0" text="Close">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </bottom>
+</BorderPane>

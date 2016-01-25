@@ -57,4 +57,9 @@ public class Author extends Person implements Serializable {
 		this.bio = bio;
 	}
 
+	@Override
+	public String toString() {
+		return this.getFirstname() + " " + this.getLastname();
+	}
+
 }

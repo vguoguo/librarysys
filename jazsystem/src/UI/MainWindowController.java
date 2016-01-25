@@ -11,12 +11,15 @@ import Application.Periodical;
 import DataAccess.DataAccess;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
@@ -91,6 +94,27 @@ public class MainWindowController {
 	private ChoiceBox<String> releaseChoiceBox;
 
 	@FXML
+	private ListView<Author> authorListview;
+	@FXML
+	private Label authorFirstnameLabel;
+	@FXML
+	private Label authorLastnameLabel;
+	@FXML
+	private TextField authorStreetField;
+	@FXML
+	private TextField authorCityField;
+	@FXML
+	private TextField authorStateField;
+	@FXML
+	private TextField authorZipField;
+	@FXML
+	private TextField authorPhoneField;
+	@FXML
+	private TextArea credentialsTextArea;
+	@FXML
+	private TextArea biographyTextArea;
+	
+	@FXML
 	private TextField memberIdSearchField;
 	@FXML
 	private TextField memberFirstnameField;
@@ -113,8 +137,24 @@ public class MainWindowController {
 	private Stage loginStage;
 	private Stage mainStage;
 	private Alert alert;
+	private ObservableList<Author> obvList = FXCollections.observableArrayList();
 	private SystemController systemController = new SystemController();
 
+	public void initAuthorListview(){
+		authorListview.setItems(obvList);
+		authorListview.getSelectionModel().selectedItemProperty().addListener(
+				new ChangeListener<Author>() {
+					public void changed(ObservableValue<? extends Author> ov,
+							Author old_val, Author new_val) {
+						clearAuthorField();
+						if (new_val != null)
+							updateAuthorField(new_val);
+					}
+				}
+
+		);
+	}
+	
 	public void addListenerToIsbnChoicebox() {
 		isbnChoicebox.getSelectionModel().selectedItemProperty().addListener(
 				new ChangeListener<String>() {
@@ -126,6 +166,7 @@ public class MainWindowController {
 							authorBorderPane.setDisable(false);
 							clearItemField();
 							clearAuthorField();
+							obvList.clear();
 							releaseLabel.setDisable(true);
 							releaseChoiceBox.setDisable(true);
 						}
@@ -134,6 +175,7 @@ public class MainWindowController {
 							authorBorderPane.setDisable(true);
 							clearItemField();
 							clearAuthorField();
+							obvList.clear();
 							releaseLabel.setDisable(false);
 							releaseChoiceBox.setDisable(false);
 						}
@@ -205,6 +247,7 @@ public class MainWindowController {
 		enableButtons();
 		clearItemField();
 		clearAuthorField();
+		obvList.clear();
 		clearMemberField();
 		isbnChoicebox.getSelectionModel().select(0);
 	}
@@ -266,7 +309,21 @@ public class MainWindowController {
 		maxDaysField.setText(Integer.toString(book.getMax_day_borrow()));
 		copiesNumField.setText(Integer.toString(book.getCopies().size()));
 		List<Author> authorList = book.getAuthors();
+		obvList.setAll(authorList);
+		authorListview.getSelectionModel().select(0);
 	}
+	
+	private void updateAuthorField(Author author){
+		authorFirstnameLabel.setText(author.getFirstname());
+		authorLastnameLabel.setText(author.getLastname());
+		authorStreetField.setText(author.getAddress().getStreet());
+		authorCityField.setText(author.getAddress().getCity());
+		authorStateField.setText(author.getAddress().getState());
+		authorZipField.setText(Integer.toString(author.getAddress().getZip()));
+		authorPhoneField.setText(author.getPhone());
+		credentialsTextArea.setText(author.getCredential());
+		biographyTextArea.setText(author.getBio());
+	}	
 	
 	private void updatePeriodicalField(Periodical periodical){
 		itemTitle.setText(periodical.getTitle());
@@ -288,7 +345,15 @@ public class MainWindowController {
 	}
 	
 	private void clearAuthorField(){
-
+		authorFirstnameLabel.setText("(Firstname)");
+		authorLastnameLabel.setText("(Lastname)");
+		authorStreetField.clear();
+		authorCityField.clear();
+		authorStateField.clear();
+		authorZipField.clear();
+		authorPhoneField.clear();
+		credentialsTextArea.clear();
+		biographyTextArea.clear();
 	}
 
 	@FXML
@@ -332,6 +397,65 @@ public class MainWindowController {
 		memberStateField.clear();
 		memberZipField.clear();
 		memberPhoneField.clear();
+	}
+
+	@FXML
+	public void handleBeginCheckoutButton(ActionEvent event) {
+		Member member = null;
+		Book book = null;
+		Periodical periodical = null;
+		String memberIdText = memberIdShowField.getText();
+		String itemIdText = itemIdShowField.getText();
+
+		if (memberIdText.length() == 0) {
+			showErrorAlert("Error", "Invalid member ID",
+					"Please search a valid member first!");
+			return;
+		}
+		if (itemIdText.length() == 0) {
+			showErrorAlert("Error", "Invalid ISBN/ISSN",
+					"Please search a publication first!");
+			return;
+		}
+		
+		member = systemController.searchMember(Integer.parseInt(memberIdText));
+		if ("ISBN".compareTo(isbnChoicebox.getValue()) == 0){
+			book = systemController.searchBook("B" + itemIdText);
+			if (book == null) {
+				showErrorAlert("Error", "Invalid ISBN",
+						"The book of this ISBN does not exist!");
+				return;
+			}
+			else {
+				mainApp.showShowRecordStage(member, book);
+			}
+		}
+		else{
+			periodical = systemController.searchPeriodical("P" + itemIdText);
+			if (periodical == null) {
+				showErrorAlert("Error", "Invalid ISSN",
+						"The periodical of this ISSN does not exist!");
+				return;
+			}
+			else {
+				mainApp.showShowRecordStage(member, periodical);
+			}
+		}
+		
+	}
+
+	@FXML
+	public void handleShowRecordButton(ActionEvent event) {
+		Member member = null;
+		String idText = memberIdShowField.getText();
+
+		if (idText.length() == 0) {
+			showErrorAlert("Error", "Invalid member ID",
+					"Please search a valid member first!");
+			return;
+		}
+		member = systemController.searchMember(Integer.parseInt(idText));
+		mainApp.showShowRecordStage(member, null);
 	}
 
 	@FXML

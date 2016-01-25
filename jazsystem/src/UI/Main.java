@@ -2,6 +2,8 @@ package UI;
 
 import java.io.IOException;
 
+import Application.Book;
+import Application.Item;
 import Application.Member;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +12,7 @@ import javafx.stage.Stage;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 
 
 
@@ -23,6 +26,8 @@ public class Main extends Application {
 	private AddBookController addBookcontroller;
 	private Stage addPeriodicalDialogStage;
 	private AddPeriodicalController addPeriodicalcontroller;
+	private Stage showRecordStage;
+	private ShowRecordController showRecordController;
 	
 	
 	@Override
@@ -48,10 +53,12 @@ public class Main extends Application {
 		mainWindowController.setLoginStage(loginStage);
 		mainWindowController.setMainStage(mainStage);
 		mainWindowController.addListenerToIsbnChoicebox();
+		mainWindowController.initAuthorListview();
 
 		initEditMemberDialog();
 		initAddBookDialog();
 		initAddPeriodicalDialog();
+		initShowRecordStage();
 
 		loginController.usernameRequestFocus();
 		loginStage.show();
@@ -159,6 +166,39 @@ public class Main extends Application {
 		return addPeriodicalcontroller.isOkClicked();
 	}
 
+	private void initShowRecordStage() {
+		try {
+			// Load the fxml file and create a new stage for the popup dialog.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(Main.class.getResource("ShowRecord.fxml"));
+			
+			BorderPane page = (BorderPane) loader.load();
+
+			// Create the dialog Stage.
+			showRecordStage = new Stage();
+			showRecordStage.setTitle("Member Checkout");
+			showRecordStage.initModality(Modality.WINDOW_MODAL);
+			showRecordStage.initOwner(mainStage);
+			Scene scene = new Scene(page, 800, 600);
+			showRecordStage.setScene(scene);
+			showRecordStage.setResizable(false);
+
+			// Set the person into the controller.
+			showRecordController = loader.getController();
+			showRecordController.setShowRecordStage(showRecordStage);
+			showRecordController.initEntryTableView();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void showShowRecordStage(Member member, Item item){		
+		showRecordController.setMemberItem(member, item);
+		showRecordStage.showAndWait();
+	}
+	
+	
 	public MainWindowController getMainWindowController() {
 		return mainWindowController;
 	}
