@@ -62,7 +62,7 @@
                        <PropertyValueFactory property="copyId" />
                    </cellValueFactory>
                 </TableColumn>
-                <TableColumn prefWidth="118.0" text="Returned Date">
+                <TableColumn prefWidth="108.0" text="Returned Date">
                    <cellValueFactory>
                        <PropertyValueFactory property="retDate" />
                    </cellValueFactory>
@@ -79,6 +79,11 @@
       <AnchorPane prefHeight="46.0" prefWidth="800.0" BorderPane.alignment="CENTER">
          <children>
             <Button layoutX="719.0" layoutY="7.0" mnemonicParsing="false" onAction="#handleCloseButton" prefHeight="33.0" prefWidth="67.0" text="Close">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button layoutX="553.0" layoutY="7.0" mnemonicParsing="false" onAction="#handlePaperButton" prefHeight="33.0" prefWidth="139.0" text="Print to Paper">
                <font>
                   <Font size="14.0" />
                </font>

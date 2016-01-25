@@ -72,6 +72,11 @@ public class ShowRecordController {
 		showRecordStage.close();
 	}
 	
+	@FXML
+	public void handlePaperButton(ActionEvent event) {
+		systemController.printMemberCheckout(this.member.getMemberID());
+	}
+	
 	public void setMemberItem(Member member, Item item){
 		this.member = member;
 		this.item = item;
