@@ -278,5 +278,26 @@ public class SystemController {
 					+ " | " + ((a.getDatereturned()==null) ? "" : a.getDatereturned()));
 		}
 	}
-
+ public int countBook(Book book){
+	 List<Copy> copylist =book.getCopies();
+	 int i=0;
+	 for(Copy a:copylist){
+		if( a.isAvailable()){
+			i++;
+		}
+	 }
+	return i;
+	 
+ }
+ public int countperiodical(Periodical periodical){
+	 List<Copy> copylist =periodical.getCopies();
+	 int i=0;
+	 for(Copy a:copylist){
+		if( a.isAvailable()){
+			i++;
+		}
+	 }
+	return i;
+	 
+ }
 }

@@ -1,5 +1,6 @@
 package UI;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import Application.AccountEntry;
@@ -307,7 +308,10 @@ public class MainWindowController {
 		itemIdShowField.setText(book.getISBN());
 		pubDateField.setText(book.getPublicationdate().toString());
 		maxDaysField.setText(Integer.toString(book.getMax_day_borrow()));
-		copiesNumField.setText(Integer.toString(book.getCopies().size()));
+		
+		SystemController sys = null;
+		copiesNumField.setText(Integer.toString(sys.countBook(book)));
+		
 		List<Author> authorList = book.getAuthors();
 		obvList.setAll(authorList);
 		authorListview.getSelectionModel().select(0);
@@ -330,10 +334,11 @@ public class MainWindowController {
 		itemIdShowField.setText(periodical.getISSN());
 		pubDateField.setText(periodical.getPublicationdate().toString());
 		maxDaysField.setText(Integer.toString(periodical.getMax_day_borrow()));
-		copiesNumField.setText(Integer.toString(periodical.getCopies().size()));
+		SystemController sys = null;
+		copiesNumField.setText(Integer.toString(sys.countperiodical(periodical)));
 		releaseChoiceBox.getSelectionModel().select(2);
 	}
-	
+	ArrayList<String> a=new ArrayList<String>();
 	private void clearItemField(){
 		itemIdSearchField.clear();
 		itemTitle.clear();
